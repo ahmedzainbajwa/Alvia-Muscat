@@ -1,0 +1,127 @@
+alvia-landing/
+│
+├── 📄 Configuration Files
+│   ├── package.json                 - Dependencies & scripts
+│   ├── package-lock.json            - Dependency lock file
+│   ├── next.config.js               - Next.js configuration
+│   ├── jsconfig.json                - Path aliases (@/components)
+│   ├── .eslintrc.json               - ESLint configuration
+│   ├── .gitignore                   - Git ignore rules
+│   └── .env.local.example           - Environment variables template
+│
+├── 📖 Documentation
+│   ├── README.md                    - Full documentation & setup guide
+│   ├── QUICKSTART.md                - Get started in 3 steps
+│   ├── PROJECT-SUMMARY.md           - Complete project overview
+│   └── STRUCTURE.txt                - This file
+│
+├── 🎨 App Directory (Next.js 14 App Router)
+│   ├── layout.jsx                   - Root layout with Manrope font
+│   ├── page.jsx                     - Main page (integrates all sections)
+│   ├── globals.css                  - Design tokens & global styles
+│   └── api/
+│       └── contact/
+│           └── route.js             - Contact form API endpoint
+│
+├── 🧩 Components (13 total)
+│   ├── Navbar/
+│   │   ├── Navbar.jsx               - Navigation with hide-on-scroll
+│   │   └── Navbar.module.css        - Navbar styles
+│   ├── Hero/
+│   │   ├── Hero.jsx                 - Hero section (two-column)
+│   │   └── Hero.module.css          - Hero styles
+│   ├── Parallax/
+│   │   ├── ParallaxSection.jsx      - Complex scroll gallery
+│   │   └── ParallaxSection.module.css
+│   ├── Amenities/
+│   │   ├── Amenities.jsx            - Amenities grid from JSON
+│   │   └── Amenities.module.css
+│   ├── Offerings/
+│   │   ├── Offerings.jsx            - Tabs + carousel + 3D tour
+│   │   └── Offerings.module.css
+│   ├── WhyInvest/
+│   │   ├── WhyInvest.jsx            - Investment advantages
+│   │   └── WhyInvest.module.css
+│   ├── Locality/
+│   │   ├── Locality.jsx             - Location info + map
+│   │   └── Locality.module.css
+│   ├── PaymentPlan/
+│   │   ├── PaymentPlan.jsx          - Payment cards with downloads
+│   │   └── PaymentPlan.module.css
+│   ├── About/
+│   │   ├── About.jsx                - About section (gold bg)
+│   │   └── About.module.css
+│   ├── Contact/
+│   │   ├── Contact.jsx              - Contact form
+│   │   └── Contact.module.css
+│   ├── Footer/
+│   │   ├── Footer.jsx               - Footer
+│   │   └── Footer.module.css
+│   ├── Button/
+│   │   ├── Button.jsx               - Reusable button component
+│   │   └── Button.module.css
+│   └── Chip/
+│       ├── Chip.jsx                 - Tab chip component
+│       └── Chip.module.css
+│
+├── 📊 Data Files
+│   ├── alvia.md                     - Main content (Markdown + frontmatter)
+│   ├── amenities.json               - Amenities list (10 items)
+│   └── offerings.json               - Residential & commercial offerings
+│
+└── 🖼️ Public Assets (35 files)
+    └── assets/
+        ├── ASSETS-README.md         - Asset replacement guide
+        ├── placeholder.svg          - Base placeholder
+        ├── hero/
+        │   ├── logo.png             - Main logo (120x40px)
+        │   └── logo.svg             - SVG logo variant
+        ├── parallax/
+        │   ├── 01.jpg               - Parallax image 1
+        │   ├── 02.jpg               - Parallax image 2
+        │   └── 03.jpg               - Parallax image 3
+        ├── amenities/
+        │   ├── pool.svg             - 10 amenity icons
+        │   ├── gym.svg
+        │   ├── playground.svg
+        │   ├── garden.svg
+        │   ├── parking.svg
+        │   ├── security.svg
+        │   ├── retail.svg
+        │   ├── mosque.svg
+        │   ├── community.svg
+        │   └── maintenance.svg
+        ├── offerings/
+        │   ├── residential/
+        │   │   ├── studio.jpg       - 5 residential images
+        │   │   ├── 1bed.jpg
+        │   │   ├── 2bed.jpg
+        │   │   ├── 3bed.jpg
+        │   │   └── penthouse.jpg
+        │   └── commercial/
+        │       ├── retail.jpg       - 4 commercial images
+        │       ├── office.jpg
+        │       ├── restaurant.jpg
+        │       └── service.jpg
+        ├── whyinvest/
+        │   ├── image-1.jpg          - Top image (1200x466px)
+        │   ├── image-2.jpg          - Bottom left (600x360px)
+        │   └── image-3.jpg          - Bottom right (600x360px)
+        ├── paymentplan/
+        │   ├── plan-1.png           - Payment plan preview 1
+        │   ├── plan-1.pdf           - Downloadable PDF 1
+        │   ├── plan-2.png           - Payment plan preview 2
+        │   └── plan-2.pdf           - Downloadable PDF 2
+        └── brochures/
+            ├── commercial-brochure.pdf
+            └── residential-brochure.pdf
+
+📦 Total Files:
+   - 26 JavaScript/JSX files
+   - 13 CSS Module files
+   - 3 JSON data files
+   - 35 Asset files (images/PDFs)
+   - 7 Configuration files
+   - 4 Documentation files
+
+🎯 Status: ✅ PRODUCTION READY

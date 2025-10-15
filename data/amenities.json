@@ -1,0 +1,53 @@
+[
+  {
+    "id": "pool-public",
+    "icon": "/assets/amenities/pool.svg",
+    "name": "Public and private swimming pools"
+  },
+  {
+    "id": "gym",
+    "icon": "/assets/amenities/gym.svg",
+    "name": "Fully equipped fitness center"
+  },
+  {
+    "id": "playground",
+    "icon": "/assets/amenities/playground.svg",
+    "name": "Children's play areas"
+  },
+  {
+    "id": "garden",
+    "icon": "/assets/amenities/garden.svg",
+    "name": "Landscaped gardens and parks"
+  },
+  {
+    "id": "parking",
+    "icon": "/assets/amenities/parking.svg",
+    "name": "Covered parking spaces"
+  },
+  {
+    "id": "security",
+    "icon": "/assets/amenities/security.svg",
+    "name": "24/7 security and surveillance"
+  },
+  {
+    "id": "retail",
+    "icon": "/assets/amenities/retail.svg",
+    "name": "Retail and dining options"
+  },
+  {
+    "id": "mosque",
+    "icon": "/assets/amenities/mosque.svg",
+    "name": "Prayer facilities"
+  },
+  {
+    "id": "community",
+    "icon": "/assets/amenities/community.svg",
+    "name": "Community center and events space"
+  },
+  {
+    "id": "maintenance",
+    "icon": "/assets/amenities/maintenance.svg",
+    "name": "Professional maintenance services"
+  }
+]
+

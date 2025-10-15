@@ -1,0 +1,167 @@
+/* ===================================
+   DESIGN TOKENS & GLOBAL STYLES
+   =================================== */
+
+:root {
+  /* Colors */
+  --color-primary: #345273;
+  --color-accent-a: #262626;
+  --color-accent-b: #cca483;
+  --color-grey-light: #f5f5f5;
+  --color-grey-border: #f5f5f5;
+  --color-grey-box: #e6e4e1;
+  --color-black: #000000;
+  --color-white: #ffffff;
+  --color-bg: #ffffff;
+  --text-primary: #1A1A1A;
+  --text-secondary: #818181;
+
+  /* Spacing (4px base unit) */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 24px;
+  --space-6: 32px;
+  --space-7: 40px;
+  --space-8: 48px;
+
+  /* Border Radius */
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 16px;
+
+  /* Typography - using clamp for fluid scaling */
+  --font-family: 'Manrope', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  
+  /* Font sizes with responsive clamp */
+  --font-h1: clamp(36px, 6vw, 104px);
+  --font-h2: clamp(32px, 5.5vw, 96px);
+  --font-h3: clamp(24px, 2vw, 28px);
+  --font-text-l: clamp(32px, 3.5vw, 48px);
+  --font-regular-m: 16px;
+  --font-regular-s: 14px;
+
+  /* Line heights */
+  --lh-h1: 1.04;
+  --lh-h2: 1.04;
+  --lh-h3: 1.32;
+  --lh-text-l: 1.32;
+  --lh-regular-m: 1.36;
+  --lh-regular-s: 1.36;
+
+  /* Letter spacing */
+  --ls-h1: -0.02em;
+  --ls-h2: -0.02em;
+}
+
+/* ===================================
+   RESET & BASE STYLES
+   =================================== */
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-family);
+  background-color: var(--color-bg);
+  color: var(--text-primary);
+  font-size: var(--font-regular-m);
+  line-height: var(--lh-regular-m);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ===================================
+   TYPOGRAPHY UTILITIES
+   =================================== */
+
+h1 {
+  font-size: var(--font-h1);
+  line-height: var(--lh-h1);
+  letter-spacing: var(--ls-h1);
+  font-weight: 500;
+}
+
+h2 {
+  font-size: var(--font-h2);
+  line-height: var(--lh-h2);
+  letter-spacing: var(--ls-h2);
+  font-weight: 400;
+}
+
+h3 {
+  font-size: var(--font-h3);
+  line-height: var(--lh-h3);
+  font-weight: 500;
+}
+
+.text-l {
+  font-size: var(--font-text-l);
+  line-height: var(--lh-text-l);
+  font-weight: 400;
+}
+
+.regular-m {
+  font-size: var(--font-regular-m);
+  line-height: var(--lh-regular-m);
+  font-weight: 400;
+}
+
+.regular-s {
+  font-size: var(--font-regular-s);
+  line-height: var(--lh-regular-s);
+  font-weight: 400;
+}
+
+/* ===================================
+   LAYOUT UTILITIES
+   =================================== */
+
+.page-padding {
+  padding-left: var(--space-8);
+  padding-right: var(--space-8);
+}
+
+.section {
+  width: 100%;
+  position: relative;
+}
+
+/* ===================================
+   ACCESSIBILITY
+   =================================== */
+
+a, button {
+  -webkit-tap-highlight-color: transparent;
+}
+
+button:focus-visible,
+a:focus-visible,
+input:focus-visible,
+textarea:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+}
+
+/* ===================================
+   BREAKPOINTS (media query helpers)
+   Desktop: >= 1200px
+   Tablet: 768px - 1199px
+   Mobile: <= 767px
+   =================================== */
+
+@media (max-width: 767px) {
+  .page-padding {
+    padding-left: var(--space-5);
+    padding-right: var(--space-5);
+  }
+}
+

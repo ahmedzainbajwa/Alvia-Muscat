@@ -1,0 +1,150 @@
+.hero {
+  min-height: 74vh;
+  display: flex;
+  align-items: center;
+  padding: 120px var(--space-8) var(--space-8);
+  background-color: var(--color-bg);
+}
+
+.container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-8);
+  width: 100%;
+  max-width: 1920px;
+  margin: 0 auto;
+  align-items: start;
+}
+
+/* Left Column - Title */
+.leftColumn {
+  display: flex;
+  align-items: flex-start;
+  padding-top: var(--space-6);
+}
+
+.title {
+  font-size: var(--font-h1);
+  line-height: var(--lh-h1);
+  letter-spacing: var(--ls-h1);
+  font-weight: 500;
+  color: var(--text-primary);
+}
+
+.dash {
+  display: block;
+  margin-bottom: var(--space-2);
+}
+
+/* Right Column - Info Block */
+.rightColumn {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-6);
+}
+
+.infoBlock {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-6);
+}
+
+.location {
+  font-size: var(--font-h3);
+  line-height: var(--lh-h3);
+  font-weight: 500;
+  color: var(--text-primary);
+}
+
+.details {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.detailRow {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  font-size: var(--font-regular-m);
+  line-height: var(--lh-regular-m);
+}
+
+.label {
+  font-size: var(--font-regular-s);
+  color: var(--text-secondary);
+}
+
+.arrow {
+  color: var(--text-secondary);
+}
+
+.value {
+  font-size: var(--font-regular-m);
+  color: var(--text-primary);
+  font-weight: 400;
+}
+
+.about {
+  margin-top: 130px;
+}
+
+.aboutText {
+  font-size: var(--font-regular-m);
+  line-height: var(--lh-regular-m);
+  color: var(--text-primary);
+  max-width: 600px;
+}
+
+.buttons {
+  display: flex;
+  gap: var(--space-4);
+  margin-top: var(--space-4);
+}
+
+/* Tablet Styles */
+@media (max-width: 1199px) {
+  .hero {
+    padding: 100px var(--space-6) var(--space-6);
+  }
+
+  .container {
+    gap: var(--space-6);
+  }
+
+  .about {
+    margin-top: var(--space-8);
+  }
+}
+
+/* Mobile Styles */
+@media (max-width: 767px) {
+  .hero {
+    min-height: auto;
+    padding: 100px var(--space-5) var(--space-8);
+  }
+
+  .container {
+    grid-template-columns: 1fr;
+    gap: var(--space-8);
+  }
+
+  .leftColumn {
+    padding-top: 0;
+  }
+
+  .about {
+    margin-top: var(--space-6);
+  }
+
+  .buttons {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .buttons button,
+  .buttons a {
+    width: 100%;
+  }
+}
+

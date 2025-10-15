@@ -1,0 +1,78 @@
+{
+  "residential": [
+    {
+      "id": "res-1",
+      "title": "Studio Apartments",
+      "subtitle": "Compact & Modern",
+      "image": "/assets/offerings/residential/studio.jpg",
+      "heightClass": "tall"
+    },
+    {
+      "id": "res-2",
+      "title": "1-Bedroom Units",
+      "subtitle": "Perfect for Couples",
+      "image": "/assets/offerings/residential/1bed.jpg",
+      "heightClass": "short"
+    },
+    {
+      "id": "res-3",
+      "title": "2-Bedroom Apartments",
+      "subtitle": "Family Living",
+      "image": "/assets/offerings/residential/2bed.jpg",
+      "heightClass": "tall"
+    },
+    {
+      "id": "res-4",
+      "title": "3-Bedroom Residences",
+      "subtitle": "Spacious & Luxurious",
+      "image": "/assets/offerings/residential/3bed.jpg",
+      "heightClass": "short"
+    },
+    {
+      "id": "res-5",
+      "title": "Penthouses",
+      "subtitle": "Ultimate Luxury",
+      "image": "/assets/offerings/residential/penthouse.jpg",
+      "heightClass": "tall"
+    }
+  ],
+  "commercial": [
+    {
+      "id": "com-1",
+      "title": "Retail Spaces",
+      "subtitle": "High Foot Traffic Zones",
+      "image": "/assets/offerings/commercial/retail.jpg",
+      "heightClass": "tall"
+    },
+    {
+      "id": "com-2",
+      "title": "Office Suites",
+      "subtitle": "Modern Work Environments",
+      "image": "/assets/offerings/commercial/office.jpg",
+      "heightClass": "short"
+    },
+    {
+      "id": "com-3",
+      "title": "Restaurant Outlets",
+      "subtitle": "Culinary Destinations",
+      "image": "/assets/offerings/commercial/restaurant.jpg",
+      "heightClass": "tall"
+    },
+    {
+      "id": "com-4",
+      "title": "Service Centers",
+      "subtitle": "Professional Services",
+      "image": "/assets/offerings/commercial/service.jpg",
+      "heightClass": "short"
+    }
+  ],
+  "premiumFeatures": [
+    "High-quality finishes with premium materials",
+    "Energy-efficient appliances and lighting",
+    "Smart home integration options",
+    "Spacious balconies with scenic views",
+    "Ample storage and modern layouts"
+  ],
+  "tourUrl": "https://stack.inspacexr.com/projects/home789/al-hail-gardens#nearby"
+}
+

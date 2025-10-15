@@ -1,0 +1,140 @@
+.section {
+  padding: var(--space-8);
+  background-color: var(--color-bg);
+}
+
+.container {
+  max-width: 1920px;
+  margin: 0 auto;
+}
+
+.heading {
+  font-size: var(--font-h3);
+  line-height: var(--lh-h3);
+  font-weight: 500;
+  color: var(--text-primary);
+  margin-bottom: var(--space-8);
+}
+
+/* Connectivity Grid */
+.connectivityGrid {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: var(--space-8);
+  margin-bottom: var(--space-8);
+}
+
+.infoBlock {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-3);
+  text-align: center;
+  position: relative;
+}
+
+.separator {
+  width: 100%;
+  height: 1px;
+  background-color: var(--color-grey-border);
+  margin-bottom: var(--space-2);
+}
+
+.time {
+  font-size: var(--font-text-l);
+  line-height: var(--lh-text-l);
+  font-weight: 400;
+  color: var(--text-primary);
+}
+
+.destination {
+  font-size: var(--font-regular-s);
+  line-height: var(--lh-regular-s);
+  color: var(--text-secondary);
+  max-width: 180px;
+}
+
+/* Map Section */
+.mapSection {
+  margin-top: var(--space-8);
+}
+
+.mapContainer {
+  position: relative;
+  width: 100%;
+  height: 500px;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  background-color: var(--color-grey-light);
+}
+
+.mapIframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+.mapOverlay {
+  position: absolute;
+  bottom: var(--space-5);
+  left: var(--space-5);
+  background-color: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  padding: var(--space-3) var(--space-4);
+  border-radius: var(--radius-sm);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.mapLink {
+  font-size: var(--font-regular-m);
+  color: var(--color-primary);
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.mapLink:hover {
+  color: #2a4160;
+}
+
+/* Tablet Styles */
+@media (max-width: 1199px) {
+  .section {
+    padding: var(--space-6);
+  }
+
+  .connectivityGrid {
+    gap: var(--space-6);
+  }
+
+  .mapContainer {
+    height: 400px;
+  }
+}
+
+/* Mobile Styles */
+@media (max-width: 767px) {
+  .section {
+    padding: var(--space-5);
+  }
+
+  .connectivityGrid {
+    flex-direction: column;
+    gap: var(--space-6);
+  }
+
+  .infoBlock {
+    width: 100%;
+  }
+
+  .mapContainer {
+    height: 350px;
+  }
+
+  .mapOverlay {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+}
+
