@@ -303,10 +303,9 @@ This project is proprietary. All rights reserved © 2025 Alvia.
 ## 🤝 Support
 
 For questions or issues:
-- Email: sales@majdoman.com
-- Phone: +968 77001111
+- Email: ahmed.zain@dubizzlelabs.com
 
 ---
 
-**Built with ❤️ for Alvia Real Estate**
+**Built by Ahmed Zain with ❤️ for Bayut**
 
