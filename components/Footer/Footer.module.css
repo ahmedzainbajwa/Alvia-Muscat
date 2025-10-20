@@ -1,7 +1,7 @@
 .footer {
   background-color: var(--color-accent-a);
   color: var(--color-white);
-  padding: var(--space-8) var(--space-8) var(--space-6);
+  padding: var(--space-9) var(--space-8) var(--space-6) var(--space-8);  /* top right bottom left */
 }
 
 .container {

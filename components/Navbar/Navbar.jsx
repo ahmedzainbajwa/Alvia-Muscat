@@ -7,9 +7,7 @@ import Button from '../Button/Button'
 import clsx from 'clsx'
 
 const navLinks = [
-  { id: 'hero', label: 'Home' },
   { id: 'hero', label: 'Overview' },
-  { id: 'parallax', label: 'Gallery' },
   { id: 'amenities', label: 'Amenities' },
   { id: 'offerings', label: 'Offerings' },
   { id: 'whyinvest', label: 'Why Invest' },
@@ -41,6 +39,16 @@ export default function Navbar() {
       // Update active section
       const sections = navLinks.map(link => link.id)
       const uniqueSections = [...new Set(sections)]
+      
+      // Check for parallax section first (part of Overview)
+      const parallaxElement = document.getElementById('parallax')
+      if (parallaxElement) {
+        const parallaxRect = parallaxElement.getBoundingClientRect()
+        if (parallaxRect.top <= 150 && parallaxRect.bottom >= 150) {
+          setActiveSection('hero') // Overview covers both hero and parallax
+          return
+        }
+      }
       
       for (const sectionId of uniqueSections.reverse()) {
         const element = document.getElementById(sectionId)

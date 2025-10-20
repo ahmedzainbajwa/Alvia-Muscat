@@ -82,7 +82,7 @@ export default function Offerings({ data }) {
 
           {/* Premium Features */}
           <div className={styles.features}>
-            <h4 className={styles.featuresHeading}>Premium Features in Every Unit</h4>
+            <h3 className={styles.featuresHeading}>Premium Features in Every Unit</h3>
             <ul className={styles.featuresList}>
               {data.premiumFeatures.map((feature, index) => (
                 <li key={index} className={styles.featureItem}>

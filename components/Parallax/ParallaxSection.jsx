@@ -22,7 +22,7 @@ import Image from 'next/image'
 import styles from './ParallaxSection.module.css'
 
 // Scroll configuration - tune these values to adjust scroll behavior
-const SCROLL_HEIGHT = 300 // Total scroll height in vh (higher = slower transitions)
+const SCROLL_HEIGHT = 200 // Total scroll height in vh (higher = slower transitions)
 
 export default function ParallaxSection({ images = [] }) {
   const containerRef = useRef(null)
@@ -38,12 +38,6 @@ export default function ParallaxSection({ images = [] }) {
   // 0.2-0.8: Transition through images
   // 0.8-1: Shrink back to square
   
-  const scale = useTransform(
-    scrollYProgress,
-    [0, 0.2, 0.8, 1],
-    [1, 1.5, 1.5, 1]
-  )
-
   const width = useTransform(
     scrollYProgress,
     [0, 0.2, 0.8, 1],
@@ -53,7 +47,13 @@ export default function ParallaxSection({ images = [] }) {
   const height = useTransform(
     scrollYProgress,
     [0, 0.2, 0.8, 1],
-    ['80vh', '100vh', '100vh', '80vh']
+    ['50vh', '80vh', '80vh', '50vh']
+  )
+
+  const x = useTransform(
+    scrollYProgress,
+    [0, 0.2, 0.8, 1],
+    ['0%', '-50%', '-50%', '0%']
   )
 
   // Track scroll progress to determine current image
@@ -90,6 +90,8 @@ export default function ParallaxSection({ images = [] }) {
           style={{
             width,
             height,
+            x,
+            left: '50%',
           }}
         >
           {images.map((image, index) => (

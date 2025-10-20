@@ -1,5 +1,5 @@
 .section {
-  padding: var(--space-8);
+  padding: var(--space-9) var(--space-8);  /* vertical=72px horizontal=120px */
   background-color: var(--color-bg);
 }
 
