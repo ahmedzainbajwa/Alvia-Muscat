@@ -1,5 +1,6 @@
 'use client'
 
+import React from 'react'
 import { motion } from 'framer-motion'
 import { useInView } from 'react-intersection-observer'
 import styles from './Locality.module.css'
@@ -7,15 +8,15 @@ import styles from './Locality.module.css'
 const connectivityData = [
   {
     time: '10 min',
-    destination: 'Sultan Qaboos Grand Mosque'
+    destination: 'Drive To Sultan Qaboos Grand Mosque'
   },
   {
     time: '15 min',
-    destination: 'Muscat International Airport'
+    destination: 'Drive To Muscat International Airport'
   },
   {
     time: '5 min',
-    destination: 'Muscat Expressway'
+    destination: 'Drive To Muscat Expressway'
   }
 ]
 
@@ -35,15 +36,20 @@ export default function Locality() {
           transition={{ duration: 0.6 }}
         >
           <h3 className={styles.heading}>Locality</h3>
+          <p className={styles.subtitle}>
+            Discover the strategic location and connectivity advantages of ALVIA
+          </p>
 
           {/* Connectivity Info Blocks */}
           <div className={styles.connectivityGrid}>
             {connectivityData.map((item, index) => (
-              <div key={index} className={styles.infoBlock}>
-                <div className={styles.separator}></div>
-                <div className={styles.time}>{item.time}</div>
-                <div className={styles.destination}>{item.destination}</div>
-              </div>
+              <React.Fragment key={index}>
+                <div className={styles.infoBlock}>
+                  <div className={styles.time}>{item.time}</div>
+                  <div className={styles.destination}>{item.destination}</div>
+                </div>
+                {index < connectivityData.length - 1 && <div className={styles.separator}></div>}
+              </React.Fragment>
             ))}
           </div>
 

@@ -22,6 +22,9 @@ export default function PaymentPlan({ plans = [] }) {
           transition={{ duration: 0.6 }}
         >
           <h3 className={styles.heading}>Payment Plan</h3>
+          <p className={styles.subtitle}>
+            Choose the payment plan that works best for your investment goals
+          </p>
 
           <div className={styles.planGrid}>
             {plans.map((plan, index) => (

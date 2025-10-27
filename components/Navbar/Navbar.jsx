@@ -4,20 +4,20 @@ import { useState, useEffect } from 'react'
 import Image from 'next/image'
 import styles from './Navbar.module.css'
 import Button from '../Button/Button'
+import BrochureModal from '../Hero/BrochureModal'
+import CallModal from '../CallModal/CallModal'
 import clsx from 'clsx'
 
 const navLinks = [
   { id: 'hero', label: 'Overview' },
-  { id: 'amenities', label: 'Amenities' },
+  { id: 'amenities-services', label: 'Amenities' },
   { id: 'offerings', label: 'Offerings' },
   { id: 'whyinvest', label: 'Why Invest' },
   { id: 'locality', label: 'Locality' },
-  { id: 'payment', label: 'Payment' },
   { id: 'about', label: 'About' },
-  { id: 'contact', label: 'Contact' },
 ]
 
-export default function Navbar() {
+function Navbar({ onRegisterInterest, onCall }) {
   const [hidden, setHidden] = useState(false)
   const [lastScrollY, setLastScrollY] = useState(0)
   const [activeSection, setActiveSection] = useState('hero')
@@ -98,7 +98,7 @@ export default function Navbar() {
           <div className={styles.logoSeparator}></div>
           <div className={styles.logo}>
             <Image 
-              src="/assets/hero/logo2.png" 
+              src="/assets/hero/logo3.png" 
               alt="Partner Logo" 
               width={120} 
               height={40}
@@ -124,16 +124,70 @@ export default function Navbar() {
           ))}
         </div>
 
-        {/* CTA Button */}
+        {/* CTA Buttons */}
         <div className={styles.cta}>
           <Button 
             variant="primary" 
             size="cta"
-            onClick={() => scrollToSection('contact')}
-            ariaLabel="Contact Us"
+            onClick={onRegisterInterest}
+            ariaLabel="Register Interest"
           >
-            Contact Us
+            Register Interest
           </Button>
+          <button 
+            className={styles.callButton}
+            onClick={onCall}
+            aria-label="Call us"
+          >
+            <svg 
+              className={styles.callIcon}
+              viewBox="0 0 24 24" 
+              fill="currentColor"
+            >
+              <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
+            </svg>
+          </button>
+          <button 
+            className={styles.languageButton}
+            onClick={() => console.log('Switch to Arabic')}
+            aria-label="Switch to Arabic"
+          >
+            <svg 
+              className={styles.languageIcon}
+              viewBox="0 0 24 24" 
+              fill="none" 
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path 
+                d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z" 
+                stroke="currentColor" 
+                strokeWidth="2" 
+                strokeLinecap="round" 
+                strokeLinejoin="round"
+              />
+              <path 
+                d="M2 12H22" 
+                stroke="currentColor" 
+                strokeWidth="2" 
+                strokeLinecap="round" 
+                strokeLinejoin="round"
+              />
+              <path 
+                d="M12 2C14.5013 4.73835 15.9228 8.29203 16 12C15.9228 15.708 14.5013 19.2616 12 22C9.49872 19.2616 8.07725 15.708 8 12C8.07725 8.29203 9.49872 4.73835 12 2Z" 
+                stroke="currentColor" 
+                strokeWidth="2" 
+                strokeLinecap="round" 
+                strokeLinejoin="round"
+              />
+            </svg>
+            <Image 
+              src="/assets/hero/Arabic.svg" 
+              alt="Arabic" 
+              width={50} 
+              height={20}
+              className={styles.arabicText}
+            />
+          </button>
         </div>
 
         {/* Mobile Menu Toggle */}
@@ -167,6 +221,23 @@ export default function Navbar() {
         </div>
       )}
     </nav>
+  )
+}
+
+// Wrapper component to handle modal state outside the nav element
+export default function NavbarWrapper() {
+  const [isModalOpen, setIsModalOpen] = useState(false)
+  const [isCallModalOpen, setIsCallModalOpen] = useState(false)
+
+  return (
+    <>
+      <Navbar 
+        onRegisterInterest={() => setIsModalOpen(true)} 
+        onCall={() => setIsCallModalOpen(true)}
+      />
+      <BrochureModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
+      <CallModal isOpen={isCallModalOpen} onClose={() => setIsCallModalOpen(false)} />
+    </>
   )
 }
 

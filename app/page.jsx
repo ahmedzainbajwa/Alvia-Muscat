@@ -3,10 +3,10 @@ import path from 'path'
 import matter from 'gray-matter'
 import Navbar from '@/components/Navbar/Navbar'
 import Hero from '@/components/Hero/Hero'
-import ParallaxSection from '@/components/Parallax/ParallaxSection'
-import Amenities from '@/components/Amenities/Amenities'
+import PropertyDetails from '@/components/PropertyDetails/PropertyDetails'
+import AmenitiesSection from '@/components/AmenitiesSection/AmenitiesSection'
 import Offerings from '@/components/Offerings/Offerings'
-import WhyInvest from '@/components/WhyInvest/WhyInvest'
+import WhyInvest, { WhyChooseAlvia1, WhyChooseAlvia2 } from '@/components/WhyInvest/WhyInvest'
 import Locality from '@/components/Locality/Locality'
 import PaymentPlan from '@/components/PaymentPlan/PaymentPlan'
 import About from '@/components/About/About'
@@ -55,12 +55,13 @@ export default async function HomePage() {
     <main>
       <Navbar />
       <Hero data={data.hero} />
-      <ParallaxSection images={data.parallaxImages} />
-      <Amenities amenities={data.amenities} />
+      <AmenitiesSection />
       <Offerings data={data.offerings} />
-      <WhyInvest images={data.whyInvestImages} />
+      <WhyInvest image={data.whyInvestImages?.[0]} />
+      <WhyChooseAlvia1 image="/assets/whyinvest/image-2.jpg" />
+      <WhyChooseAlvia2 image="/assets/whyinvest/image-3.jpg" />
       <Locality />
-      <PaymentPlan plans={data.paymentPlans} />
+      {/* <PaymentPlan plans={data.paymentPlans} /> */}
       <About content={data.content} />
       <Contact />
       <Footer />

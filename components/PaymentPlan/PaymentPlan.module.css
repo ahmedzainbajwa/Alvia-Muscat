@@ -11,9 +11,18 @@
 .heading {
   font-size: var(--font-h3);
   line-height: var(--lh-h3);
-  font-weight: 500;
+  font-weight: 700;
   color: var(--text-primary);
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+.subtitle {
+  font-size: var(--font-regular-m);
+  line-height: var(--lh-regular-m);
+  color: var(--text-secondary);
   margin-bottom: var(--space-8);
+  text-align: center;
 }
 
 .planGrid {

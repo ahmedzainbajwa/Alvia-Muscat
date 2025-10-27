@@ -1,5 +1,5 @@
 .section {
-  padding: var(--space-9) var(--space-8);  /* vertical=72px horizontal=120px */
+  padding: var(--space-9) var(--space-8);
   background-color: var(--color-bg);
 }
 
@@ -10,59 +10,47 @@
 
 /* Top Section */
 .topSection {
+  text-align: center;
   margin-bottom: var(--space-8);
 }
 
 .heading {
   font-size: var(--font-h3);
   line-height: var(--lh-h3);
-  font-weight: 500;
+  font-weight: 700;
   color: var(--text-primary);
-  margin-bottom: var(--space-3);
+  margin-bottom: 10px;
+  text-align: center;
 }
 
-.description {
+.subtitle {
   font-size: var(--font-regular-m);
   line-height: var(--lh-regular-m);
-  color: var(--text-primary);
-  max-width: 800px;
+  color: var(--text-secondary);
+  max-width: 600px;
+  margin: 0 auto;
 }
 
-/* Image Grid */
-.imageGrid {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  margin-bottom: var(--space-8);
-}
-
-.imageTop {
-  position: relative;
-  width: 100%;
-  height: 466px;
-  border-radius: var(--radius-lg);
-  overflow: hidden;
-  background-color: var(--color-grey-light);
-}
-
-.imageBottom {
+/* Main Two-Column Layout */
+.mainLayout {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 10px;
+  gap: var(--space-8);
 }
 
-.imageHalf {
-  position: relative;
-  width: 100%;
-  height: 360px;
-  border-radius: var(--radius-lg);
-  overflow: hidden;
-  background-color: var(--color-grey-light);
+/* Reversed Layout - Image Left, Cards Right */
+.mainLayoutReversed {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-8);
 }
 
-/* Key Investment Advantages */
-.advantages {
-  margin-bottom: var(--space-8);
+.leftColumn {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  min-height: 520px;
 }
 
 .advantagesHeading {
@@ -70,53 +58,113 @@
   line-height: var(--lh-h3);
   font-weight: 500;
   color: var(--text-primary);
-  margin-bottom: var(--space-5);
+  margin-bottom: 10px;
 }
 
-.advantagesList {
-  list-style: none;
+.advantagesDescription {
+  font-size: var(--font-regular-m);
+  line-height: var(--lh-regular-m);
+  color: var(--text-secondary);
+  margin-bottom: 24px;
+}
+
+.advantageCards {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.advantageCard {
+  background-color: var(--color-white);
+  border-radius: var(--radius-md);
+  padding: 24px;
+  border: 1px solid var(--color-grey-border);
   display: flex;
   flex-direction: column;
+  gap: var(--space-4);
+}
+
+.cardIcon {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.cardContent {
+  flex: 1;
+}
+
+.cardTitle {
+  font-size: var(--font-regular-m);
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: var(--space-3);
+  line-height: 1.3;
+}
+
+.cardDescription {
+  font-size: var(--font-regular-s);
+  line-height: var(--lh-regular-s);
+  color: var(--text-secondary);
+}
+
+.rightColumn {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  min-height: 520px;
+}
+
+/* Right column content for reversed layout */
+.mainLayoutReversed .rightColumn {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  min-height: 520px;
+}
+
+.imageContainer {
+  position: relative;
+  width: 100%;
+  height: 520px;
+  border-radius: 24px;
+  overflow: hidden;
+  background-color: var(--color-grey-light);
+}
+
+/* Investment Advantages Section */
+.investmentSection {
+  text-align: center;
+  margin-top: var(--space-8);
+}
+
+.investmentHeading {
+  font-size: var(--font-h3);
+  line-height: var(--lh-h3);
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: var(--space-6);
+}
+
+.investmentChips {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
   gap: var(--space-3);
 }
 
-.advantageItem {
-  font-size: var(--font-regular-m);
-  line-height: var(--lh-regular-m);
-  color: var(--text-primary);
-  padding-left: var(--space-5);
-  position: relative;
-}
-
-.advantageItem::before {
-  content: "•";
-  position: absolute;
-  left: 0;
-  color: var(--color-primary);
-  font-weight: bold;
-  font-size: 20px;
-}
-
-/* Investment Highlights */
-.highlights {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 10px;
-  flex-wrap: wrap;
-}
-
-.highlightBox {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  padding: var(--space-3) var(--space-4);
+.chip {
   background-color: var(--color-grey-box);
-  border-radius: var(--radius-sm);
-  font-size: var(--font-regular-m);
   color: var(--text-primary);
-  font-weight: 400;
-  text-align: center;
+  padding: var(--space-3) var(--space-4);
+  border-radius: 20px;
+  font-size: var(--font-regular-s);
+  font-weight: 500;
+  white-space: nowrap;
 }
 
 /* Tablet Styles */
@@ -125,13 +173,30 @@
     padding: var(--space-6);
   }
 
-  .imageTop {
-    height: 360px;
+  .mainLayout,
+  .mainLayoutReversed {
+    grid-template-columns: 1fr;
+    gap: var(--space-6);
   }
 
-  .imageHalf {
-    height: 280px;
+  .imageContainer {
+    height: 420px;
   }
+
+  .leftColumn,
+  .rightColumn {
+    min-height: 420px;
+  }
+
+  .advantageCards {
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+  }
+
+  .advantageCard {
+    padding: 16px;
+  }
+
 }
 
 /* Mobile Styles */
@@ -140,25 +205,42 @@
     padding: var(--space-5);
   }
 
-  .imageTop {
-    height: 250px;
-  }
-
-  .imageBottom {
+  .mainLayout,
+  .mainLayoutReversed {
     grid-template-columns: 1fr;
+    gap: var(--space-5);
   }
 
-  .imageHalf {
-    height: 220px;
+  .imageContainer {
+    height: 320px;
+    border-radius: 16px;
   }
 
-  .highlights {
+  .leftColumn,
+  .rightColumn {
+    min-height: 320px;
+  }
+
+  .advantageCards {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .advantageCard {
+    padding: 16px;
+  }
+
+
+  .investmentChips {
     flex-direction: column;
-    align-items: stretch;
+    align-items: center;
+    gap: var(--space-2);
   }
 
-  .highlightBox {
+  .chip {
     width: 100%;
+    max-width: 300px;
+    text-align: center;
   }
 }
 

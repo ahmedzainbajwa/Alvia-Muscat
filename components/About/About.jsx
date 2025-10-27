@@ -2,6 +2,7 @@
 
 import { motion } from 'framer-motion'
 import { useInView } from 'react-intersection-observer'
+import Image from 'next/image'
 import styles from './About.module.css'
 
 export default function About({ content }) {
@@ -20,53 +21,37 @@ export default function About({ content }) {
           transition={{ duration: 0.6 }}
           className={styles.content}
         >
-          {/* Left Column */}
-          <div className={styles.leftColumn}>
-            <h3 className={styles.heading}>About Us</h3>
-            <p className={styles.paragraph}>
-              <strong>Oman&apos;s Vision 2040</strong> lays the foundation for sustainable economic growth, 
-              social development, and environmental stewardship, with the real estate sector serving 
-              as a cornerstone of this ambitious framework. The initiative seeks to diversify the economy 
-              by reducing dependency on oil revenues while fostering innovation, infrastructure development, 
-              and community well-being.
-            </p>
-          </div>
-
-          {/* Right Column */}
-          <div className={styles.rightColumn}>
-            <div className={styles.block}>
-              <h4 className={styles.subheading}>A Legacy of Excellence</h4>
-              <p className={styles.paragraph}>
-                With over two decades of expertise, we have established ourselves as a trusted name in 
-                Oman&apos;s real estate sector. Our portfolio includes prestigious residential complexes, 
-                commercial hubs, and mixed-use developments that redefine urban living. We pride ourselves 
-                on creating spaces that not only meet contemporary needs but also anticipate future demands, 
-                blending timeless design with cutting-edge functionality.
+          {/* Edge-to-edge Image with Overlay */}
+          <div className={styles.imageContainer}>
+            <Image
+              src="/assets/whyinvest/image-1.jpg"
+              alt="Alvia development"
+              fill
+              style={{ objectFit: 'cover' }}
+              sizes="100vw"
+            />
+            <div className={styles.gradientOverlay}></div>
+            <div className={styles.textOverlay}>
+              <h3 className={styles.heading}>About Us</h3>
+              <p className={styles.subtitle}>
+                Learn about our vision and commitment to Oman's future
               </p>
-            </div>
-
-            <div className={styles.block}>
-              <h4 className={styles.subheading}>Innovation for the Modern Market</h4>
               <p className={styles.paragraph}>
-                Understanding the evolving expectations of today&apos;s buyers and investors, we integrate 
-                smart technologies, sustainable building practices, and customer-centric design principles 
-                into every project. From energy-efficient systems to thoughtfully curated amenities, our 
-                developments are engineered to enhance quality of life while delivering long-term value.
+                <strong>Oman&apos;s Vision 2040 and Our Commitment</strong> - We are deeply aligned with 
+                Oman's Vision 2040, positioning the Sultanate as a dynamic global destination with distinctive 
+                investment opportunities. Through our projects, we actively contribute to making Oman an ideal 
+                place to live, work, and explore.
               </p>
-            </div>
-
-            <div className={styles.block}>
-              <h4 className={styles.subheading}>Our Strategic Objectives</h4>
-              <ul className={styles.list}>
-                <li><strong>Economic Contribution:</strong> Driving local economic growth by creating jobs, 
-                supporting local businesses, and attracting foreign investment.</li>
-                <li><strong>Sustainable Development:</strong> Embracing green building standards and 
-                environmentally responsible practices to minimize ecological impact.</li>
-                <li><strong>Community Building:</strong> Designing vibrant neighborhoods that foster social 
-                interaction, cultural enrichment, and a strong sense of belonging.</li>
-                <li><strong>Innovation Leadership:</strong> Pioneering new construction methodologies, 
-                leveraging digital tools, and setting industry benchmarks for excellence.</li>
-              </ul>
+              <p className={styles.paragraph}>
+                <strong>A Legacy of Excellence</strong> - Founded in 2019, Sohar Real Estate Development builds 
+                on more than two decades of experience. By blending visionary concepts with meticulous execution, 
+                we have established a strong reputation for quality and sustainability.
+              </p>
+              <p className={styles.paragraph}>
+                <strong>Innovation for the Modern Market</strong> - We respond directly to the evolving aspirations 
+                of Oman's real estate market. Our mission is to create projects that are innovative, accessible, 
+                and competitively priced while maximizing investment returns for today's buyers.
+              </p>
             </div>
           </div>
         </motion.div>
