@@ -93,6 +93,12 @@
   gap: var(--space-4);
 }
 
+.buttonsRow {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-4);
+}
+
 .formRow {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -131,6 +137,40 @@
 .textarea {
   resize: vertical;
   min-height: 120px;
+}
+
+.phoneInputGroup {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: var(--space-3);
+  align-items: center;
+}
+
+.countryCodeSelect {
+  flex-shrink: 0;
+}
+
+.phoneInput {
+  font-family: var(--font-family);
+  font-size: var(--font-regular-m);
+  padding: var(--space-3) var(--space-4);
+  border: 1px solid var(--color-grey-border);
+  border-radius: var(--radius-sm);
+  background-color: var(--color-white);
+  color: var(--text-primary);
+}
+
+.snackbar {
+  position: fixed;
+  left: 50%;
+  bottom: 24px;
+  transform: translateX(-50%);
+  background-color: #1f2937;
+  color: white;
+  padding: 12px 16px;
+  border-radius: 6px;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.2);
+  z-index: 9999;
 }
 
 .status {
@@ -174,7 +214,15 @@
     padding: var(--space-5);
   }
 
+  .leftColumn {
+    gap: var(--space-4); /* Reduce gap between logo and content from 120px to 32px */
+  }
+
   .formRow {
+    grid-template-columns: 1fr;
+  }
+
+  .buttonsRow {
     grid-template-columns: 1fr;
   }
 }

@@ -281,6 +281,10 @@
   .cardSubtitle {
     font-size: 14px; /* Slightly smaller for tablet */
   }
+
+  .tourContainer {
+    padding-bottom: calc(56.25% + 400px); /* Add 400px height for tablet */
+  }
 }
 
 /* Mobile Styles */
@@ -313,6 +317,10 @@
 
   .cardSubtitle {
     font-size: 13px; /* Smaller for mobile */
+  }
+
+  .tourContainer {
+    padding-bottom: calc(56.25% + 400px); /* Add 400px height for mobile */
   }
 
   /* Enable horizontal scrolling on mobile touch devices */

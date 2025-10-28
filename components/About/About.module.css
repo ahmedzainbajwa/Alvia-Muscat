@@ -81,15 +81,26 @@
 /* Responsive Design */
 @media (max-width: 767px) {
   .imageContainer {
-    height: 500px;
+    height: 380px; /* Reduced by 120px from 500px */
   }
   
   .textOverlay {
     padding: 0 var(--space-4);
+    width: 100%;
   }
   
   .heading {
     font-size: var(--font-h3);
+  }
+
+  .subtitle {
+    font-size: 12px; /* Reduce font size */
+    line-height: 1.4;
+  }
+
+  .paragraph {
+    font-size: 12px; /* Reduce font size */
+    line-height: 1.4;
   }
 }
 

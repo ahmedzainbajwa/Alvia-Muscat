@@ -136,6 +136,12 @@
   background-color: var(--color-grey-light);
 }
 
+.cardsWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-6);
+}
+
 /* Investment Advantages Section */
 .investmentSection {
   text-align: center;
@@ -181,6 +187,7 @@
 
   .imageContainer {
     height: 420px;
+    margin-bottom: 24px; /* Reduce gap to 24px for tablet */
   }
 
   .leftColumn,
@@ -195,6 +202,15 @@
 
   .advantageCard {
     padding: 16px;
+  }
+
+  /* Responsive spacing for heading and subtitle */
+  .advantagesHeading {
+    margin-bottom: 1px; /* 1px spacing between heading and subtitle for tablet */
+  }
+
+  .advantagesDescription {
+    margin-bottom: 20px; /* 20px spacing between subtitle and cards for tablet */
   }
 
 }
@@ -214,11 +230,12 @@
   .imageContainer {
     height: 320px;
     border-radius: 16px;
+    margin-bottom: 24px; /* Reduce gap to 24px for mobile */
   }
 
   .leftColumn,
   .rightColumn {
-    min-height: 320px;
+    min-height: auto; /* Remove min-height on mobile for natural flow */
   }
 
   .advantageCards {
@@ -230,6 +247,39 @@
     padding: 16px;
   }
 
+  /* Order content on mobile: Image first, then heading/subtitle, then cards */
+  .mainLayout,
+  .mainLayoutReversed {
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* Move image to top in mobile by adjusting order */
+  .mainLayout > :nth-child(2) {
+    order: 1; /* Image goes first on mobile */
+  }
+
+  .mainLayout > :nth-child(1) {
+    order: 2; /* Content goes second on mobile */
+  }
+
+  /* For reversed layout - image is in left column, move it to top */
+  .mainLayoutReversed > :nth-child(1) {
+    order: 1; /* Image column goes first */
+  }
+
+  .mainLayoutReversed > :nth-child(2) {
+    order: 2; /* Content column goes second */
+  }
+
+  /* Responsive spacing for heading and subtitle */
+  .advantagesHeading {
+    margin-bottom: 1px; /* 1px spacing between heading and subtitle for mobile */
+  }
+
+  .advantagesDescription {
+    margin-bottom: 20px; /* 20px spacing between subtitle and cards for mobile */
+  }
 
   .investmentChips {
     flex-direction: column;

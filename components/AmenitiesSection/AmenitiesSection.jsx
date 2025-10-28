@@ -76,18 +76,61 @@ export default function AmenitiesSection() {
   const [currentIndex, setCurrentIndex] = useState(0)
   const [isPaused, setIsPaused] = useState(false)
   const [progress, setProgress] = useState(0)
+  const [windowWidth, setWindowWidth] = useState(0)
   const autoRotateRef = useRef(null)
   const sectionRef = useRef(null)
 
   const currentService = servicesData[currentIndex]
+  
+  // Get current width with fallback
+  const currentWidth = windowWidth || (typeof window !== 'undefined' ? window.innerWidth : 1920)
+
+  // Track window size changes
+  useEffect(() => {
+    const handleResize = () => {
+      setWindowWidth(window.innerWidth)
+    }
+
+    // Set initial width
+    setWindowWidth(window.innerWidth)
+    
+    window.addEventListener('resize', handleResize)
+    return () => window.removeEventListener('resize', handleResize)
+  }, [])
 
   // Calculate orbital positions - active item positioned at middle-left (180 degrees)
   const getOrbitalPosition = (index, total) => {
-    const radius = 470 // pixels from center (increased by 100px to match new larger orbital line)
-    // Calculate the offset to rotate the orbit so current active item is at middle-left (180 degrees)
-    const orbitOffset = (360 / total) * currentIndex + 180
-    // Each item's angle relative to the current active item (which should be at middle-left)
+    // Responsive radius based on screen size
+    let radius = 470 // Desktop default
+    const width = windowWidth || (typeof window !== 'undefined' ? window.innerWidth : 1920)
+    
+    if (width <= 480) {
+      radius = 190 // Extra small mobile
+    } else if (width <= 767) {
+      radius = 230 // Mobile
+    } else if (width <= 1199) {
+      radius = 270 // Tablet
+    }
+    
+    // Calculate the offset to rotate the orbit
+    // Desktop: active item at middle-left (180 degrees)
+    // Mobile/Tablet: active item at left (90 degrees)
+    const orbitOffset = width > 1199 
+      ? (360 / total) * currentIndex + 180  // Desktop: middle-left
+      : (360 / total) * currentIndex + 90   // Mobile/Tablet: left
+    // Each item's angle relative to the current active item
     const relativeAngle = (360 / total) * index - orbitOffset
+    
+    // Desktop: use original positioning (centered)
+    if (width > 1199) {
+      const x = radius * Math.cos((relativeAngle * Math.PI) / 180)
+      const y = radius * Math.sin((relativeAngle * Math.PI) / 180)
+      return { x, y, angle: relativeAngle }
+    }
+    
+    // Mobile/Tablet: position thumbnails to match orbital line exactly
+    // Orbital line: left: Xpx, translateX(-50%), no top (defaults to 0)
+    // Line center: horizontally at Xpx, vertically at (lineHeight / 2)
     const x = radius * Math.cos((relativeAngle * Math.PI) / 180)
     const y = radius * Math.sin((relativeAngle * Math.PI) / 180)
     return { x, y, angle: relativeAngle }
@@ -220,9 +263,6 @@ export default function AmenitiesSection() {
                 <h4 className={styles.serviceTitle}>{currentService.title}</h4>
                 <p className={styles.serviceSubtitle}>{currentService.subtitle}</p>
                 <p className={styles.serviceDescription}>{currentService.description}</p>
-                <a href="#" className={styles.learnMore} onClick={(e) => e.preventDefault()}>
-                  Learn more
-                </a>
               </motion.div>
             </AnimatePresence>
           </div>
@@ -246,9 +286,24 @@ export default function AmenitiesSection() {
                     key={service.id}
                     className={`${styles.orbitalThumbnail} ${isActive ? styles.orbitalThumbnailActive : ''}`}
                     style={{
-                      left: '50%',
-                      top: '50%',
-                      transform: `translate(calc(-50% + ${pos.x}px), calc(-50% + ${pos.y}px))`
+                      // Desktop: use transform-based positioning (original)
+                      // Mobile/Tablet: use absolute positioning to match orbital line
+                      ...(currentWidth > 1199 ? {
+                        left: '50%',
+                        top: '50%',
+                        transform: isActive 
+                          ? `translate(calc(-50% + ${pos.x}px), calc(-50% + ${pos.y}px)) scale(1.186)` 
+                          : `translate(calc(-50% + ${pos.x}px), calc(-50% + ${pos.y}px))`
+                      } : {
+                        // Position thumbnails to match orbital line
+                        // Orbital line: left: Xpx, no top (defaults to 0), translateX(-50%)
+                        // Line center: horizontally at Xpx, vertically at (line height / 2)
+                        left: `calc(${currentWidth <= 480 ? '190px' : currentWidth <= 767 ? '230px' : '270px'} + ${pos.x}px)`,
+                        top: `calc(${currentWidth <= 480 ? '190px' : currentWidth <= 767 ? '230px' : '270px'} + ${pos.y}px + 195px)`,
+                        transform: isActive 
+                          ? `translate(-50%, -50%) scale(${currentWidth <= 480 ? '1.15' : currentWidth <= 767 ? '1.1' : '1.1'})` 
+                          : `translate(-50%, -50%)`
+                      })
                     }}
                     onClick={() => handleThumbnailClick(index)}
                     aria-label={`View ${service.title}`}

@@ -28,9 +28,12 @@
 /* Connectivity Grid */
 .connectivityGrid {
   display: flex;
+  flex-direction: row;
   justify-content: center;
   align-items: center;
+  gap: var(--space-4);
   margin-bottom: var(--space-8);
+  flex-wrap: wrap;
 }
 
 .infoBlock {
@@ -72,13 +75,16 @@
 .mapContainer {
   position: relative;
   width: 100%;
-  height: 500px;
+  padding-bottom: 56.25%; /* 16:9 aspect ratio to match 3D view */
   border-radius: var(--radius-lg);
   overflow: hidden;
   background-color: var(--color-grey-light);
 }
 
 .mapIframe {
+  position: absolute;
+  top: 0;
+  left: 0;
   width: 100%;
   height: 100%;
   border: none;
@@ -113,12 +119,31 @@
     padding: var(--space-6);
   }
 
+  .subtitle {
+    margin-bottom: var(--space-4); /* Changed from var(--space-8) */
+  }
+
   .connectivityGrid {
     gap: var(--space-6);
+    margin-bottom: var(--space-4); /* Changed from var(--space-8) */
   }
 
   .mapContainer {
-    height: 400px;
+    padding-bottom: calc(56.25% + 400px); /* Add 400px height for tablet */
+  }
+
+  /* Responsive font sizes for tablet */
+  .time {
+    font-size: 14px;
+    line-height: 1.4;
+    font-weight: 600; /* Added */
+  }
+
+  .destination {
+    font-size: 12px;
+    line-height: 1.4;
+    max-width: 150px;
+    font-weight: 500; /* Added */
   }
 }
 
@@ -128,17 +153,54 @@
     padding: var(--space-5);
   }
 
+  .subtitle {
+    margin-bottom: var(--space-4); /* Changed from var(--space-8) */
+  }
+
   .connectivityGrid {
-    flex-direction: column;
-    gap: var(--space-6);
+    flex-direction: row;
+    gap: 0;
+    flex-wrap: nowrap;
+    margin-bottom: var(--space-4); /* Changed from var(--space-8) */
   }
 
   .infoBlock {
-    width: 100%;
+    flex: 1;
+    min-width: 0;
+  }
+
+  /* Add separator back for mobile */
+  .infoBlock + .infoBlock::before {
+    content: '';
+    position: absolute;
+    left: -8px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 1px;
+    height: 60%;
+    background-color: var(--color-grey-border);
   }
 
   .mapContainer {
-    height: 350px;
+    padding-bottom: calc(56.25% + 400px); /* Add 400px height for mobile */
+  }
+
+  .mapSection {
+    margin-top: var(--space-4); /* Reduce from var(--space-8) to 16px for mobile */
+  }
+
+  /* Responsive font sizes for mobile */
+  .time {
+    font-size: 14px; /* Changed from 11px */
+    line-height: 1.3;
+    font-weight: 600; /* Added */
+  }
+
+  .destination {
+    font-size: 12px; /* Changed from 9px */
+    line-height: 1.2;
+    max-width: 90px;
+    font-weight: 500; /* Added */
   }
 
   .mapOverlay {

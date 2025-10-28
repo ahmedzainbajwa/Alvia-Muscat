@@ -22,7 +22,8 @@ export default function CallModal({ isOpen, onClose }) {
         document.body.style.top = ''
         document.body.style.width = ''
         document.body.style.overflowY = ''
-        window.scrollTo(0, scrollY)
+        // Restore scroll position without scrolling to top first
+        window.scrollTo({ top: scrollY, behavior: 'instant' })
       }
     }
   }, [isOpen])
