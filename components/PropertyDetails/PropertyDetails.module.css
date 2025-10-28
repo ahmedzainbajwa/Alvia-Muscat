@@ -65,12 +65,21 @@
   }
 
   .details {
-    gap: var(--space-6);
+    flex-direction: column;
+    gap: var(--space-5);
+    align-items: stretch;
   }
 
   .detailRow {
-    padding: 0 var(--space-4);
-    min-width: 160px;
+    border-right: none;
+    border-bottom: 1px solid var(--color-grey-border);
+    padding: 0 0 var(--space-4) 0;
+    min-width: auto;
+  }
+
+  .detailRow:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
   }
 }
 

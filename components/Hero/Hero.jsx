@@ -48,7 +48,7 @@ export default function Hero({ data }) {
       {/* Background Video */}
       <video
         className={styles.heroVideo}
-        src="/assets/hero/alvia-flythrough.mov"
+        src="/assets/hero/alvia-flythrough.mp4"
         autoPlay
         muted
         loop

@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from 'react'
 import Image from 'next/image'
+import CustomCountrySelect from '../CustomCountrySelect/CustomCountrySelect'
 import styles from './BrochureModal.module.css'
 
 export default function BrochureModal({ isOpen, onClose }) {
@@ -259,18 +260,12 @@ export default function BrochureModal({ isOpen, onClose }) {
                 Phone Number <span className={styles.required}>*</span>
               </label>
               <div className={styles.phoneInputGroup}>
-                <select
-                  name="countryCode"
+                <CustomCountrySelect
+                  countryCodes={countryCodes}
                   value={formData.countryCode}
-                  onChange={handleCountryCodeChange}
+                  onChange={(e) => handleCountryCodeChange(e)}
                   className={styles.countryCodeSelect}
-                >
-                  {countryCodes.map((country, index) => (
-                    <option key={`${country.code}-${index}`} value={country.code}>
-                      {country.flag} {country.code}
-                    </option>
-                  ))}
-                </select>
+                />
                 <input
                   type="tel"
                   id="phone"

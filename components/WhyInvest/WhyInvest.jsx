@@ -94,9 +94,9 @@ export default function WhyInvest({ image }) {
             </p>
           </div>
 
-          {/* Main Two-Column Layout */}
+          {/* Desktop Layout - Two-Column with Cards Left, Image Right */}
           <div className={styles.mainLayout}>
-            {/* Left Column - Key Investment Advantages */}
+            {/* Left Column - Heading, Subtitle, and Advantage Cards */}
             <div className={styles.leftColumn}>
               <h5 className={styles.advantagesHeading}>Economic Impact</h5>
               <p className={styles.advantagesDescription}>
@@ -323,14 +323,14 @@ export function WhyChooseAlvia2({ image }) {
           animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
           transition={{ duration: 0.6 }}
         >
-          {/* Main Two-Column Layout - Cards Left, Image Right */}
+          {/* Desktop Layout - Two-Column with Cards Left, Image Right */}
           <div className={styles.mainLayout}>
-                {/* Left Column - Key Investment Advantages */}
-                <div className={styles.leftColumn}>
-                  <h5 className={styles.advantagesHeading}>Investment Benefits</h5>
-                  <p className={styles.advantagesDescription}>
-                    Experience the perfect blend of luxury, convenience, and investment potential in one exceptional development.
-                  </p>
+            {/* Left Column - Heading, Subtitle, and Advantage Cards */}
+            <div className={styles.leftColumn}>
+              <h5 className={styles.advantagesHeading}>Investment Benefits</h5>
+              <p className={styles.advantagesDescription}>
+                Experience the perfect blend of luxury, convenience, and investment potential in one exceptional development.
+              </p>
               <div className={styles.advantageCards}>
                 {advantageCards3.map((card) => (
                   <div key={card.id} className={styles.advantageCard}>

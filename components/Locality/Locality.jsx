@@ -43,13 +43,10 @@ export default function Locality() {
           {/* Connectivity Info Blocks */}
           <div className={styles.connectivityGrid}>
             {connectivityData.map((item, index) => (
-              <React.Fragment key={index}>
-                <div className={styles.infoBlock}>
-                  <div className={styles.time}>{item.time}</div>
-                  <div className={styles.destination}>{item.destination}</div>
-                </div>
-                {index < connectivityData.length - 1 && <div className={styles.separator}></div>}
-              </React.Fragment>
+              <div key={index} className={styles.infoBlock}>
+                <div className={styles.time}>{item.time}</div>
+                <div className={styles.destination}>{item.destination}</div>
+              </div>
             ))}
           </div>
 

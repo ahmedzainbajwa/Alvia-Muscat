@@ -221,6 +221,39 @@
   .tagline {
     margin-bottom: var(--space-6);
   }
+
+  .details {
+    flex-direction: column;
+    gap: 0;
+    margin-top: var(--space-8);
+    margin-bottom: var(--space-6);
+  }
+
+  .detailRow {
+    padding: var(--space-5) 0;
+    border-right: none;
+    border-bottom: none;
+    position: relative;
+  }
+
+  .detailRow::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 1px;
+    background-color: rgba(255, 255, 255, 0.3);
+  }
+
+  .detailRow::after {
+    display: none;
+  }
+
+  .detailRow:last-child::before {
+    display: none;
+  }
 }
 
 /* Mobile Styles */
@@ -250,6 +283,39 @@
   .tagline {
     font-size: clamp(14px, 3.5vw, 16px);
     margin-bottom: var(--space-6);
+  }
+
+  .details {
+    flex-direction: column;
+    gap: 0;
+    margin-top: var(--space-6);
+    margin-bottom: var(--space-5);
+  }
+
+  .detailRow {
+    padding: var(--space-4) 0;
+    border-right: none;
+    border-bottom: none;
+    position: relative;
+  }
+
+  .detailRow::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 50px;
+    height: 1px;
+    background-color: rgba(255, 255, 255, 0.3);
+  }
+
+  .detailRow::after {
+    display: none;
+  }
+
+  .detailRow:last-child::before {
+    display: none;
   }
 
   .buttons {

@@ -30,7 +30,16 @@ export default function Offerings({ data }) {
     const calculatePages = () => {
       if (carouselRef.current) {
         const containerWidth = carouselRef.current.offsetWidth
-        const cardWidth = 400 + 16 // Updated card width + gap
+        const windowWidth = window.innerWidth
+        
+        // Responsive card width based on screen size
+        let cardWidth = 400 + 16 // Desktop default
+        if (windowWidth <= 767) {
+          cardWidth = 320 + 16 // Mobile
+        } else if (windowWidth <= 1199) {
+          cardWidth = 350 + 16 // Tablet
+        }
+        
         const visibleCards = Math.floor(containerWidth / cardWidth)
         const pages = Math.ceil(currentOfferings.length / visibleCards)
         setTotalPages(pages)
@@ -46,7 +55,16 @@ export default function Offerings({ data }) {
   const scrollToPage = (page) => {
     if (carouselRef.current) {
       const containerWidth = carouselRef.current.offsetWidth
-      const cardWidth = 400 + 16 // Updated card width + gap
+      const windowWidth = window.innerWidth
+      
+      // Responsive card width based on screen size
+      let cardWidth = 400 + 16 // Desktop default
+      if (windowWidth <= 767) {
+        cardWidth = 320 + 16 // Mobile
+      } else if (windowWidth <= 1199) {
+        cardWidth = 350 + 16 // Tablet
+      }
+      
       const visibleCards = Math.floor(containerWidth / cardWidth)
       const scrollPosition = (page - 1) * visibleCards * cardWidth
       
@@ -77,7 +95,16 @@ export default function Offerings({ data }) {
   const handleScroll = () => {
     if (carouselRef.current) {
       const containerWidth = carouselRef.current.offsetWidth
-      const cardWidth = 400 + 16 // Updated card width + gap
+      const windowWidth = window.innerWidth
+      
+      // Responsive card width based on screen size
+      let cardWidth = 400 + 16 // Desktop default
+      if (windowWidth <= 767) {
+        cardWidth = 320 + 16 // Mobile
+      } else if (windowWidth <= 1199) {
+        cardWidth = 350 + 16 // Tablet
+      }
+      
       const visibleCards = Math.floor(containerWidth / cardWidth)
       const scrollLeft = carouselRef.current.scrollLeft
       const newPage = Math.round(scrollLeft / (visibleCards * cardWidth)) + 1

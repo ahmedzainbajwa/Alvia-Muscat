@@ -37,20 +37,19 @@ export default function About({ content }) {
                 Learn about our vision and commitment to Oman's future
               </p>
               <p className={styles.paragraph}>
-                <strong>Oman&apos;s Vision 2040 and Our Commitment</strong> - We are deeply aligned with 
-                Oman's Vision 2040, positioning the Sultanate as a dynamic global destination with distinctive 
-                investment opportunities. Through our projects, we actively contribute to making Oman an ideal 
-                place to live, work, and explore.
+                <strong>Oman&apos;s Vision 2040</strong> - We align with Oman's Vision 2040, 
+                creating distinctive investment opportunities and contributing to making Oman 
+                an ideal place to live, work, and explore.
               </p>
               <p className={styles.paragraph}>
-                <strong>A Legacy of Excellence</strong> - Founded in 2019, Sohar Real Estate Development builds 
-                on more than two decades of experience. By blending visionary concepts with meticulous execution, 
-                we have established a strong reputation for quality and sustainability.
+                <strong>Legacy of Excellence</strong> - Founded in 2019, Sohar Real Estate 
+                Development builds on two decades of experience, establishing quality and 
+                sustainability through visionary concepts.
               </p>
               <p className={styles.paragraph}>
-                <strong>Innovation for the Modern Market</strong> - We respond directly to the evolving aspirations 
-                of Oman's real estate market. Our mission is to create projects that are innovative, accessible, 
-                and competitively priced while maximizing investment returns for today's buyers.
+                <strong>Modern Innovation</strong> - We create innovative, accessible projects 
+                that maximize investment returns while responding to Oman's evolving real estate 
+                market aspirations.
               </p>
             </div>
           </div>
