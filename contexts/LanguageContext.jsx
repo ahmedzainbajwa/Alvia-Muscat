@@ -19,8 +19,8 @@ export function LanguageProvider({ children }) {
   useEffect(() => {
     if (!mounted) return
     
-    // Detect language from URL pathname
-    const detectedLanguage = pathname?.startsWith('/ar') ? 'ar' : 'en'
+    // Detect language from URL pathname - default to Arabic, /en for English
+    const detectedLanguage = pathname?.startsWith('/en') ? 'en' : 'ar'
     setLanguage(detectedLanguage)
     
     // Sync i18next with detected language
@@ -45,15 +45,17 @@ export function LanguageProvider({ children }) {
     }
     setLanguage(newLanguage)
     
-    // Manipulate pathname to add/remove /ar prefix
+    // Manipulate pathname to add/remove /en prefix
     let newPath = pathname || '/alvia'
-    if (newLanguage === 'ar') {
-      if (!newPath.startsWith('/ar')) {
-        newPath = `/ar${newPath}`
+    if (newLanguage === 'en') {
+      // Switching to English - add /en prefix
+      if (!newPath.startsWith('/en')) {
+        newPath = `/en${newPath}`
       }
     } else {
-      if (newPath.startsWith('/ar')) {
-        newPath = newPath.replace('/ar', '') || '/alvia'
+      // Switching to Arabic - remove /en prefix (default)
+      if (newPath.startsWith('/en')) {
+        newPath = newPath.replace('/en', '') || '/alvia'
       }
     }
     
@@ -73,9 +75,9 @@ export function LanguageProvider({ children }) {
   }
 
   if (!mounted) {
-    // Return default values during SSR
+    // Return default values during SSR - default to Arabic
     return (
-      <LanguageContext.Provider value={{ language: 'en', toggleLanguage, t, isRTL: false }}>
+      <LanguageContext.Provider value={{ language: 'ar', toggleLanguage, t, isRTL: true }}>
         {children}
       </LanguageContext.Provider>
     )

@@ -15,8 +15,8 @@ if (!i18n.isInitialized) {
         translation: arTranslations,
       },
     },
-    lng: 'en',
-    fallbackLng: 'en',
+    lng: 'ar',
+    fallbackLng: 'ar',
     interpolation: { escapeValue: false },
   })
 }

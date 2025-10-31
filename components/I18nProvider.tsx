@@ -14,8 +14,8 @@ export default function I18nProvider({
   const pathname = usePathname()
 
   useEffect(() => {
-    // Detect language from URL
-    const locale = pathname?.startsWith('/ar') ? 'ar' : 'en'
+    // Detect language from URL - default to Arabic, /en for English
+    const locale = pathname?.startsWith('/en') ? 'en' : 'ar'
 
     if (i18n.language !== locale) {
       i18n.changeLanguage(locale)
