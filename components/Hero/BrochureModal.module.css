@@ -347,3 +347,34 @@
   }
 }
 
+/* RTL (Arabic) - Keep layout same as English: images left, form right */
+html[dir="rtl"] .modalContent {
+  direction: ltr; /* Force LTR layout to prevent RTL from reversing flex items */
+  flex-direction: row !important; /* Explicitly set to row with important to override any RTL defaults */
+}
+
+html[dir="rtl"] .leftSection {
+  order: 1 !important; /* Keep images on left */
+}
+
+html[dir="rtl"] .rightSection {
+  order: 2 !important; /* Keep form on right */
+  direction: rtl; /* RTL for Arabic text inside form */
+}
+
+html[dir="rtl"] .closeButton {
+  left: 20px !important; /* Move close button to left side for RTL */
+  right: auto !important;
+}
+
+/* RTL text alignment for form elements (Arabic text) */
+html[dir="rtl"] .label {
+  text-align: right;
+}
+
+html[dir="rtl"] .input,
+html[dir="rtl"] .phoneInput {
+  text-align: right;
+  direction: rtl;
+}
+
