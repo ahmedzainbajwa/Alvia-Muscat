@@ -1,0 +1,339 @@
+.section {
+  padding: var(--space-9) var(--space-8);  /* vertical=72px horizontal=120px */
+  background-color: var(--color-bg); /* White background */
+}
+
+.container {
+  max-width: 1920px;
+  margin: 0 auto;
+}
+
+.heading {
+  font-size: var(--font-h3);
+  line-height: var(--lh-h3);
+  font-weight: 700;
+  color: var(--text-primary); /* Dark text for white background */
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+.subtitle {
+  font-size: var(--font-regular-m);
+  line-height: var(--lh-regular-m);
+  color: var(--text-secondary);
+  max-width: 600px;
+  margin: 0 auto var(--space-6);
+  text-align: center;
+}
+
+/* Tabs */
+.tabs {
+  display: flex;
+  gap: var(--space-3);
+  margin-bottom: var(--space-6);
+}
+
+/* Carousel */
+.carouselWrapper {
+  width: 100%;
+  overflow: hidden;
+  margin-bottom: var(--space-6); /* Reduced margin for pagination controls */
+}
+
+.carousel {
+  display: flex;
+  gap: var(--space-4);
+  overflow-x: hidden; /* Disable horizontal scrolling on web */
+  scroll-snap-type: none; /* Disable snap scrolling on web */
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  padding-bottom: var(--space-4);
+}
+
+.carousel::-webkit-scrollbar {
+  display: none;
+}
+
+/* Pagination and Navigation Controls */
+.paginationControls {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: var(--space-8);
+}
+
+.paginationInfo {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+}
+
+.paginationText {
+  font-size: 16px;
+  font-weight: 500;
+  color: var(--color-accent-b); /* Accent-b color for pagination text */
+}
+
+.progressLine {
+  width: 200px;
+  height: 2px;
+  background-color: rgba(204, 164, 131, 0.2); /* Light accent-b background */
+  position: relative;
+}
+
+.progressLine::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: var(--progress, 50%); /* Dynamic width based on current page */
+  background-color: var(--color-accent-b); /* Accent-b color for progress fill */
+  transition: width 0.3s ease;
+}
+
+.navigationButtons {
+  display: flex;
+  gap: var(--space-3);
+}
+
+.navButton {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 2px solid var(--color-accent-b);
+  background: transparent;
+  color: var(--color-accent-b);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.navButton:hover {
+  background-color: var(--color-accent-b);
+  color: var(--color-white);
+}
+
+.navButton:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.card {
+  flex: 0 0 auto;
+  width: 400px; /* Larger cards like reference image */
+  background-color: transparent;
+  border-radius: 4px; /* 4px corner radius as requested */
+  overflow: hidden;
+  scroll-snap-align: start;
+  transition: none !important; /* Remove all card transitions */
+  display: flex;
+  flex-direction: column; /* Stack image and text vertically */
+  box-shadow: none !important; /* Ensure no shadow */
+  transform: none !important; /* Ensure no transform */
+  elevation: 0 !important; /* Remove any elevation */
+  will-change: auto; /* Disable hardware acceleration for transforms */
+}
+
+/* Ensure no card hover effects - both enter and leave */
+.card:hover,
+.card:focus,
+.card:active {
+  box-shadow: none !important; /* No shadow on any state */
+  transform: none !important; /* No lifting on any state */
+  elevation: 0 !important; /* No elevation on any state */
+}
+
+/* Ensure no effects on mouse leave */
+.card:not(:hover) {
+  box-shadow: none !important;
+  transform: none !important;
+  elevation: 0 !important;
+}
+
+/* Uniform height for all cards - larger like reference */
+.card .imageWrapper {
+  height: 320px; /* Increased height for more prominence */
+  border-radius: 4px; /* 4px corner radius on all corners */
+  position: relative;
+  overflow: hidden; /* Ensure zoom effect stays within bounds */
+  transition: transform 0.3s ease; /* Only zoom effect on image */
+}
+
+/* Hover effect only on image */
+.card:hover .imageWrapper {
+  transform: scale(1.05); /* Subtle zoom effect */
+}
+
+/* Additional overrides to prevent any card effects */
+.card * {
+  transition: none !important; /* Remove transitions from all child elements except image */
+}
+
+.card .imageWrapper {
+  transition: transform 0.3s ease !important; /* Only allow image transition */
+}
+
+.imageWrapper {
+  position: relative;
+  width: 100%;
+  background-color: var(--color-grey-light);
+}
+
+.cardContent {
+  padding: var(--space-4) 0; /* Padding top and bottom, no left/right */
+  text-align: left; /* Left align text with thumbnail */
+}
+
+.cardTitle {
+  font-size: 20px; /* Larger title for prominence */
+  font-weight: 600; /* Bolder weight */
+  color: var(--text-primary); /* Dark text for readability */
+  margin-bottom: var(--space-1);
+}
+
+.cardSubtitle {
+  font-size: 16px; /* Larger subtitle for prominence */
+  color: var(--text-secondary); /* Secondary text color */
+  line-height: 1.3;
+}
+
+/* About Alvia */
+.aboutSection {
+  margin-bottom: var(--space-8);
+}
+
+.aboutHeading {
+  font-size: var(--font-h3);
+  line-height: var(--lh-h3);
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: var(--space-4);
+  text-align: left;
+}
+
+.aboutDescription {
+  font-size: 18px;
+  line-height: var(--lh-regular-m);
+  color: var(--text-secondary);
+  text-align: left;
+  max-width: 100%;
+  margin: 0;
+}
+
+/* RTL (Arabic) alignment for About section */
+html[dir="rtl"] .aboutHeading,
+html[dir="rtl"] .aboutDescription {
+  text-align: right;
+}
+
+
+/* 3D Tour */
+.tourSection {
+  margin-top: var(--space-8);
+}
+
+.tourHeading {
+  font-size: var(--font-h3);
+  line-height: var(--lh-h3);
+  font-weight: 500;
+  color: var(--text-primary);
+  margin-bottom: var(--space-5);
+}
+
+.tourContainer {
+  position: relative;
+  width: 100%;
+  padding-bottom: 56.25%; /* 16:9 aspect ratio */
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  background-color: var(--color-grey-light);
+}
+
+.tourIframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+/* Tablet Styles */
+@media (max-width: 1199px) {
+  .section {
+    padding: var(--space-6);
+  }
+
+  .card {
+    width: 350px; /* Larger cards for tablet */
+  }
+
+  .card .imageWrapper {
+    height: 280px; /* Maintain prominence on tablet */
+    border-radius: 4px; /* Equal corner radius on all corners */
+  }
+
+  .cardContent {
+    padding: var(--space-3) 0; /* Slightly less padding for tablet */
+  }
+
+  .cardTitle {
+    font-size: 18px; /* Slightly smaller for tablet */
+  }
+
+  .cardSubtitle {
+    font-size: 14px; /* Slightly smaller for tablet */
+  }
+
+  .tourContainer {
+    padding-bottom: calc(56.25% + 400px); /* Add 400px height for tablet */
+  }
+}
+
+/* Mobile Styles */
+@media (max-width: 767px) {
+  .section {
+    padding: var(--space-5);
+  }
+
+  .heading {
+    font-size: clamp(20px, 5vw, 28px);
+  }
+
+  .card {
+    width: 320px; /* Larger cards for mobile */
+  }
+
+  /* Uniform height maintained on mobile */
+  .card .imageWrapper {
+    height: 240px; /* Maintain prominence on mobile */
+    border-radius: 4px; /* Equal corner radius on all corners */
+  }
+
+  .cardContent {
+    padding: var(--space-2) 0; /* Less padding for mobile */
+  }
+
+  .cardTitle {
+    font-size: 16px; /* Smaller for mobile */
+  }
+
+  .cardSubtitle {
+    font-size: 13px; /* Smaller for mobile */
+  }
+
+  .tourContainer {
+    padding-bottom: calc(56.25% + 400px); /* Add 400px height for mobile */
+  }
+
+  /* Enable horizontal scrolling on mobile touch devices */
+  .carousel {
+    overflow-x: auto; /* Enable scrolling on mobile */
+    scroll-snap-type: x mandatory; /* Enable snap scrolling on mobile */
+    -webkit-overflow-scrolling: touch; /* Smooth scrolling on iOS */
+  }
+}
+

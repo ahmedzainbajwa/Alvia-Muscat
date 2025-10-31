@@ -1,0 +1,296 @@
+.section {
+  padding: var(--space-9) var(--space-8);
+  background-color: var(--color-bg);
+}
+
+.container {
+  max-width: 1920px;
+  margin: 0 auto;
+}
+
+/* Top Section */
+.topSection {
+  text-align: center;
+  margin-bottom: var(--space-8);
+}
+
+.heading {
+  font-size: var(--font-h3);
+  line-height: var(--lh-h3);
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+.subtitle {
+  font-size: var(--font-regular-m);
+  line-height: var(--lh-regular-m);
+  color: var(--text-secondary);
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* Main Two-Column Layout */
+.mainLayout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-8);
+}
+
+/* Reversed Layout - Image Left, Cards Right */
+.mainLayoutReversed {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-8);
+}
+
+.leftColumn {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  min-height: 520px;
+}
+
+.advantagesHeading {
+  font-size: var(--font-h3);
+  line-height: var(--lh-h3);
+  font-weight: 500;
+  color: var(--text-primary);
+  margin-bottom: 10px;
+}
+
+.advantagesDescription {
+  font-size: var(--font-regular-m);
+  line-height: var(--lh-regular-m);
+  color: var(--text-secondary);
+  margin-bottom: 24px;
+}
+
+.advantageCards {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.advantageCard {
+  background-color: var(--color-white);
+  border-radius: var(--radius-md);
+  padding: 24px;
+  border: 1px solid var(--color-grey-border);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.cardIcon {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.cardContent {
+  flex: 1;
+}
+
+.cardTitle {
+  font-size: var(--font-regular-m);
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: var(--space-3);
+  line-height: 1.3;
+}
+
+.cardDescription {
+  font-size: var(--font-regular-s);
+  line-height: var(--lh-regular-s);
+  color: var(--text-secondary);
+}
+
+.rightColumn {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  min-height: 520px;
+}
+
+/* Right column content for reversed layout */
+.mainLayoutReversed .rightColumn {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  min-height: 520px;
+}
+
+.imageContainer {
+  position: relative;
+  width: 100%;
+  height: 520px;
+  border-radius: 24px;
+  overflow: hidden;
+  background-color: var(--color-grey-light);
+}
+
+.cardsWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-6);
+}
+
+/* Investment Advantages Section */
+.investmentSection {
+  text-align: center;
+  margin-top: var(--space-8);
+}
+
+.investmentHeading {
+  font-size: var(--font-h3);
+  line-height: var(--lh-h3);
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: var(--space-6);
+}
+
+.investmentChips {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--space-3);
+}
+
+.chip {
+  background-color: var(--color-grey-box);
+  color: var(--text-primary);
+  padding: var(--space-3) var(--space-4);
+  border-radius: 20px;
+  font-size: var(--font-regular-s);
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+/* Tablet Styles */
+@media (max-width: 1199px) {
+  .section {
+    padding: var(--space-6);
+  }
+
+  .mainLayout,
+  .mainLayoutReversed {
+    grid-template-columns: 1fr;
+    gap: var(--space-6);
+  }
+
+  .imageContainer {
+    height: 420px;
+    margin-bottom: 24px; /* Reduce gap to 24px for tablet */
+  }
+
+  .leftColumn,
+  .rightColumn {
+    min-height: 420px;
+  }
+
+  .advantageCards {
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+  }
+
+  .advantageCard {
+    padding: 16px;
+  }
+
+  /* Responsive spacing for heading and subtitle */
+  .advantagesHeading {
+    margin-bottom: 1px; /* 1px spacing between heading and subtitle for tablet */
+  }
+
+  .advantagesDescription {
+    margin-bottom: 20px; /* 20px spacing between subtitle and cards for tablet */
+  }
+
+}
+
+/* Mobile Styles */
+@media (max-width: 767px) {
+  .section {
+    padding: var(--space-5);
+  }
+
+  .mainLayout,
+  .mainLayoutReversed {
+    grid-template-columns: 1fr;
+    gap: var(--space-5);
+  }
+
+  .imageContainer {
+    height: 320px;
+    border-radius: 16px;
+    margin-bottom: 24px; /* Reduce gap to 24px for mobile */
+  }
+
+  .leftColumn,
+  .rightColumn {
+    min-height: auto; /* Remove min-height on mobile for natural flow */
+  }
+
+  .advantageCards {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .advantageCard {
+    padding: 16px;
+  }
+
+  /* Order content on mobile: Image first, then heading/subtitle, then cards */
+  .mainLayout,
+  .mainLayoutReversed {
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* Move image to top in mobile by adjusting order */
+  .mainLayout > :nth-child(2) {
+    order: 1; /* Image goes first on mobile */
+  }
+
+  .mainLayout > :nth-child(1) {
+    order: 2; /* Content goes second on mobile */
+  }
+
+  /* For reversed layout - image is in left column, move it to top */
+  .mainLayoutReversed > :nth-child(1) {
+    order: 1; /* Image column goes first */
+  }
+
+  .mainLayoutReversed > :nth-child(2) {
+    order: 2; /* Content column goes second */
+  }
+
+  /* Responsive spacing for heading and subtitle */
+  .advantagesHeading {
+    margin-bottom: 1px; /* 1px spacing between heading and subtitle for mobile */
+  }
+
+  .advantagesDescription {
+    margin-bottom: 20px; /* 20px spacing between subtitle and cards for mobile */
+  }
+
+  .investmentChips {
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-2);
+  }
+
+  .chip {
+    width: 100%;
+    max-width: 300px;
+    text-align: center;
+  }
+}
+
