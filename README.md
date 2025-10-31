@@ -152,7 +152,7 @@ Edit `data/offerings.json` for residential and commercial listings:
       "id": "res-1",
       "title": "Studio Apartments",
       "subtitle": "Compact & Modern",
-      "image": "/assets/offerings/residential/studio.jpg",
+      "image": "/assets/offerings/residential/studio.webp",
       "heightClass": "tall"
     }
   ],
@@ -168,8 +168,8 @@ All assets are in `/public/assets/`. See `/public/assets/ASSETS-README.md` for d
 
 #### Quick Reference:
 
-1. **Logo** (`/assets/hero/logo.png`): 120x40px
-2. **Parallax Images** (`/assets/parallax/01-03.jpg`): 1920x1080px
+1. **Logo** (`/assets/hero/logo.webp`): 120x40px
+2. **Parallax Images** (`/assets/parallax/01-03.webp`): 1920x1080px
 3. **Amenity Icons** (`/assets/amenities/*.svg`): 24x24px SVG
 4. **Offering Images**:
    - Residential: 5 images (600x800px)
@@ -186,7 +186,7 @@ All assets are in `/public/assets/`. See `/public/assets/ASSETS-README.md` for d
 4. Optimize images before uploading (use TinyPNG, ImageOptim, etc.)
 
 **Important**: The logo is used in multiple places. Replace both:
-- `/public/assets/hero/logo.png` (navbar)
+- `/public/assets/hero/logo.webp` (navbar)
 - `/public/assets/hero/logo.svg` (optional vector version)
 
 ## ⚙️ Customization

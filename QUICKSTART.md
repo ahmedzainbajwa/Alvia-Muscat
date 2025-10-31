@@ -76,7 +76,7 @@ This is a **production-ready Next.js 14 landing page** with:
 ```
 
 ### Update Logo
-Replace: `public/assets/hero/logo.png` (120x40px)
+Replace: `public/assets/hero/logo.webp` (120x40px)
 
 ### Edit Hero Text
 ```yaml

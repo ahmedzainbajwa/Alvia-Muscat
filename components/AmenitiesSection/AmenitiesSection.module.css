@@ -386,6 +386,16 @@
     font-size: clamp(14px, 4vw, 16px);
   }
 
+  /* Arabic mobile: center-align header and subtitle */
+  html[dir="rtl"] .header {
+    text-align: center;
+  }
+  html[dir="rtl"] .subtitle {
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
   .mainContent {
     flex-direction: column;
     gap: var(--space-6);
@@ -543,5 +553,50 @@
   .progressBar {
     transition: none !important;
     animation: none !important;
+  }
+}
+
+/* ===================================
+   RTL SUPPORT - ARABIC
+   =================================== */
+
+/* Arabic RTL: Move entire orbital block further left on desktop */
+@media (min-width: 1200px) {
+  html[dir="rtl"] .mainContent {
+    overflow: visible; /* allow left overflow */
+  }
+  html[dir="rtl"] .orbitSection {
+    justify-content: flex-start; /* align block to left side */
+  }
+  html[dir="rtl"] .orbitContainer {
+    transform: translateX(-760px); /* move 120px further left for Arabic desktop */
+  }
+  /* Align left column content properly for Arabic */
+  html[dir="rtl"] .contentSection {
+    padding-right: 0;
+    padding-left: var(--space-4);
+    text-align: right;
+  }
+  html[dir="rtl"] .serviceTitle,
+  html[dir="rtl"] .serviceSubtitle,
+  html[dir="rtl"] .serviceDescription {
+    text-align: right;
+  }
+  /* Center the header texts (heading + subtitle) under Arabic */
+  html[dir="rtl"] .header {
+    text-align: center;
+  }
+  /* Mirror fade to left edge for Arabic desktop and invert gradient */
+  html[dir="rtl"] .fadeGradient {
+    left: 0;
+    right: auto;
+    background: linear-gradient(to right, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 0) 100%);
+  }
+}
+
+/* Keep mobile/tablet unchanged for Arabic */
+@media (max-width: 1199px) {
+  html[dir="rtl"] .orbitSection {
+    justify-content: flex-end;
   }
 }

@@ -8,8 +8,10 @@ import Button from '../Button/Button'
 import CallModal from '../CallModal/CallModal'
 import CustomCountrySelect from '../CustomCountrySelect/CustomCountrySelect'
 import styles from './Contact.module.css'
+import { useLanguage } from '@/contexts/LanguageContext'
 
 export default function Contact() {
+  const { t } = useLanguage()
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -134,16 +136,16 @@ export default function Contact() {
       const data = await response.json()
 
       if (response.ok && data.success) {
-        const successMsg = 'Your form has been submitted Successfully. You will soon be contacted by an agent for further discussions.'
+        const successMsg = t('contact.form.success')
         setStatus({ type: 'success', message: successMsg })
         setSnackbar({ open: true, message: successMsg })
         setFormData({ name: '', email: '', countryCode: '+968', phone: '', message: '' })
         setTimeout(() => setSnackbar({ open: false, message: '' }), 3500)
       } else {
-        setStatus({ type: 'error', message: 'Something went wrong. Please try again.' })
+        setStatus({ type: 'error', message: t('contact.form.error') })
       }
     } catch (error) {
-      setStatus({ type: 'error', message: 'Failed to send message. Please try again.' })
+      setStatus({ type: 'error', message: t('contact.form.error') })
     } finally {
       setLoading(false)
     }
@@ -163,7 +165,7 @@ export default function Contact() {
           <div className={styles.leftColumn}>
             <div className={styles.logoWrapper}>
               <Image 
-                src="/assets/hero/logo.png" 
+                src="/assets/hero/logo.webp" 
                 alt="Alvia Logo" 
                 width={160} 
                 height={80}
@@ -171,23 +173,23 @@ export default function Contact() {
             </div>
             
             <div className={styles.contactInfo}>
-              <h4 className={styles.contactHeading}>Contact Us At</h4>
+              <h4 className={styles.contactHeading}>{t('contact.contactHeading')}</h4>
               <div className={styles.contactItem}>
                 <div className={styles.icon}>
                   <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                     <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
                   </svg>
                 </div>
-                <span>+96924442682</span>
+                <span>{t('contact.phone')}</span>
               </div>
             </div>
           </div>
 
           {/* Right Column - Contact Form */}
           <div className={styles.rightColumn}>
-            <h3 className={styles.heading}>Get in Touch</h3>
+            <h3 className={styles.heading}>{t('contact.heading')}</h3>
             <p className={styles.subtitle}>
-              Ready to start your journey with ALVIA? We'd love to hear from you
+              {t('contact.subtitle')}
             </p>
             
             <form onSubmit={handleSubmit} className={styles.form}>
@@ -197,10 +199,10 @@ export default function Contact() {
                   name="name"
                   value={formData.name}
                   onChange={handleChange}
-                  placeholder="Your Name"
+                  placeholder={t('contact.form.name')}
                   className={styles.input}
                   required
-                  aria-label="Your Name"
+                  aria-label={t('contact.form.name')}
                 />
               </div>
 
@@ -211,10 +213,10 @@ export default function Contact() {
                     name="email"
                     value={formData.email}
                     onChange={handleChange}
-                    placeholder="Email Address"
+                    placeholder={t('contact.form.email')}
                     className={styles.input}
                     required
-                    aria-label="Email Address"
+                    aria-label={t('contact.form.email')}
                   />
                 </div>
 
@@ -231,10 +233,10 @@ export default function Contact() {
                       name="phone"
                       value={formData.phone}
                       onChange={handleChange}
-                      placeholder="Phone Number"
+                      placeholder={t('contact.form.phone')}
                       className={styles.phoneInput}
                       required
-                      aria-label="Phone Number"
+                      aria-label={t('contact.form.phone')}
                     />
                   </div>
                 </div>
@@ -245,11 +247,11 @@ export default function Contact() {
                   name="message"
                   value={formData.message}
                   onChange={handleChange}
-                  placeholder="Your Message"
+                  placeholder={t('contact.form.message')}
                   className={styles.textarea}
                   rows="5"
                   required
-                  aria-label="Your Message"
+                  aria-label={t('contact.form.message')}
                 />
               </div>
 
@@ -265,9 +267,9 @@ export default function Contact() {
                   variant="primary"
                   size="large"
                   disabled={loading}
-                  ariaLabel="Submit Contact Form"
+                  ariaLabel={t('contact.form.submit')}
                 >
-                  {loading ? 'Sending...' : 'Send Message'}
+                  {loading ? t('contact.form.sending') : t('contact.form.submit')}
                 </Button>
 
                 <Button
@@ -275,7 +277,7 @@ export default function Contact() {
                   variant="primary"
                   size="large"
                   onClick={handleContactUsClick}
-                  ariaLabel="Contact Us"
+                  ariaLabel={t('contact.form.contactUs')}
                 >
                   <svg
                     width="20"
@@ -287,7 +289,7 @@ export default function Contact() {
                   >
                     <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" stroke="currentColor" strokeWidth="2"/>
                   </svg>
-                  Contact Us
+                  {t('contact.form.contactUs')}
                 </Button>
               </div>
             </form>

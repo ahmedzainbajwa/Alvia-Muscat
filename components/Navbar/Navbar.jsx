@@ -6,18 +6,20 @@ import styles from './Navbar.module.css'
 import Button from '../Button/Button'
 import BrochureModal from '../Hero/BrochureModal'
 import CallModal from '../CallModal/CallModal'
+import { useLanguage } from '@/contexts/LanguageContext'
 import clsx from 'clsx'
 
-const navLinks = [
-  { id: 'hero', label: 'Overview' },
-  { id: 'amenities-services', label: 'Amenities' },
-  { id: 'offerings', label: 'Offerings' },
-  { id: 'whyinvest', label: 'Why Invest' },
-  { id: 'locality', label: 'Locality' },
-  { id: 'about', label: 'About' },
-]
-
 function Navbar({ onRegisterInterest, onCall }) {
+  const { t, toggleLanguage, language, isRTL } = useLanguage()
+  
+  const navLinks = [
+    { id: 'hero', label: t('navbar.overview') },
+    { id: 'amenities-services', label: t('navbar.amenities') },
+    { id: 'offerings', label: t('navbar.offerings') },
+    { id: 'whyinvest', label: t('navbar.whyInvest') },
+    { id: 'locality', label: t('navbar.locality') },
+    { id: 'about', label: t('navbar.about') },
+  ]
   const [hidden, setHidden] = useState(false)
   const [lastScrollY, setLastScrollY] = useState(0)
   const [activeSection, setActiveSection] = useState('hero')
@@ -88,7 +90,7 @@ function Navbar({ onRegisterInterest, onCall }) {
         <div className={styles.logoWrapper}>
           <div className={styles.logo}>
             <Image 
-              src="/assets/hero/logo.png" 
+              src="/assets/hero/logo.webp" 
               alt="Alvia Logo" 
               width={120} 
               height={40}
@@ -98,7 +100,7 @@ function Navbar({ onRegisterInterest, onCall }) {
           <div className={styles.logoSeparator}></div>
           <div className={styles.logo}>
             <Image 
-              src="/assets/hero/logo3.png" 
+              src="/assets/hero/logo3.webp" 
               alt="Partner Logo" 
               width={120} 
               height={40}
@@ -130,14 +132,14 @@ function Navbar({ onRegisterInterest, onCall }) {
             variant="primary" 
             size="cta"
             onClick={onRegisterInterest}
-            ariaLabel="Register Interest"
+            ariaLabel={t('navbar.registerInterest')}
           >
-            Register Interest
+            {t('navbar.registerInterest')}
           </Button>
           <button 
             className={styles.callButton}
             onClick={onCall}
-            aria-label="Call us"
+            aria-label={t('navbar.callAria')}
           >
             <svg 
               className={styles.callIcon}
@@ -149,8 +151,8 @@ function Navbar({ onRegisterInterest, onCall }) {
           </button>
           <button 
             className={styles.languageButton}
-            onClick={() => console.log('Switch to Arabic')}
-            aria-label="Switch to Arabic"
+            onClick={toggleLanguage}
+            aria-label={t('navbar.languageAria')}
           >
             <svg 
               className={styles.languageIcon}
@@ -180,13 +182,17 @@ function Navbar({ onRegisterInterest, onCall }) {
                 strokeLinejoin="round"
               />
             </svg>
-            <Image 
-              src="/assets/hero/Arabic.svg" 
-              alt="Arabic" 
-              width={50} 
-              height={20}
-              className={styles.arabicText}
-            />
+            {language === 'en' ? (
+              <Image 
+                src="/assets/hero/Arabic.svg" 
+                alt="Arabic" 
+                width={50} 
+                height={20}
+                className={styles.arabicText}
+              />
+            ) : (
+              <span className={styles.languageText}>EN</span>
+            )}
           </button>
         </div>
 

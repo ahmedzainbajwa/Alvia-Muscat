@@ -4,8 +4,10 @@ import { useState, useEffect } from 'react'
 import Image from 'next/image'
 import CustomCountrySelect from '../CustomCountrySelect/CustomCountrySelect'
 import styles from './BrochureModal.module.css'
+import { useLanguage } from '@/contexts/LanguageContext'
 
 export default function BrochureModal({ isOpen, onClose }) {
+  const { t } = useLanguage()
   const [formData, setFormData] = useState({
     fullName: '',
     email: '',
@@ -17,9 +19,9 @@ export default function BrochureModal({ isOpen, onClose }) {
 
   // Carousel images
   const carouselImages = [
-    '/assets/brochure-modal/image-1.jpg',
-    '/assets/brochure-modal/image-2.jpg',
-    '/assets/brochure-modal/image-3.jpg'
+    '/assets/brochure-modal/image-1.webp',
+    '/assets/brochure-modal/image-2.webp',
+    '/assets/brochure-modal/image-3.webp'
   ]
 
   // Country codes for phone input - All countries
@@ -179,7 +181,7 @@ export default function BrochureModal({ isOpen, onClose }) {
           
           {/* Carousel Text Overlay */}
           <div className={styles.carouselText}>
-            <p>Capturing Moments, Creating Memories</p>
+            <p>{t('brochureModal.tagline')}</p>
           </div>
 
           {/* Carousel Indicators */}
@@ -198,7 +200,7 @@ export default function BrochureModal({ isOpen, onClose }) {
           <div className={styles.logoWrapper}>
             <div className={styles.logo}>
               <Image
-                src="/assets/hero/logo.png"
+                src="/assets/hero/logo.webp"
                 alt="Alvia Logo"
                 width={120}
                 height={40}
@@ -208,7 +210,7 @@ export default function BrochureModal({ isOpen, onClose }) {
             <div className={styles.logoSeparator}></div>
             <div className={styles.logo}>
               <Image
-                src="/assets/hero/logo3.png"
+                src="/assets/hero/logo3.webp"
                 alt="Partner Logo"
                 width={120}
                 height={40}
@@ -216,14 +218,14 @@ export default function BrochureModal({ isOpen, onClose }) {
               />
             </div>
           </div>
-          <h2 className={styles.modalHeading}>Register Now</h2>
-          <p className={styles.modalSubtitle}>Register to download the brochures now</p>
+          <h2 className={styles.modalHeading}>{t('brochureModal.registerNow')}</h2>
+          <p className={styles.modalSubtitle}>{t('brochureModal.registerSubtitle')}</p>
 
           <form onSubmit={handleSubmit} className={styles.form}>
             {/* Full Name */}
             <div className={styles.formGroup}>
               <label htmlFor="fullName" className={styles.label}>
-                Full Name <span className={styles.required}>*</span>
+                {t('brochureModal.fullName')} <span className={styles.required}>*</span>
               </label>
               <input
                 type="text"
@@ -231,7 +233,7 @@ export default function BrochureModal({ isOpen, onClose }) {
                 name="fullName"
                 value={formData.fullName}
                 onChange={handleChange}
-                placeholder="Enter your full name"
+                placeholder={t('brochureModal.fullNamePlaceholder')}
                 className={styles.input}
                 required
               />
@@ -240,7 +242,7 @@ export default function BrochureModal({ isOpen, onClose }) {
             {/* Email Address */}
             <div className={styles.formGroup}>
               <label htmlFor="email" className={styles.label}>
-                Email Address <span className={styles.required}>*</span>
+                {t('brochureModal.email')} <span className={styles.required}>*</span>
               </label>
               <input
                 type="email"
@@ -248,7 +250,7 @@ export default function BrochureModal({ isOpen, onClose }) {
                 name="email"
                 value={formData.email}
                 onChange={handleChange}
-                placeholder="Enter your email address"
+                placeholder={t('brochureModal.emailPlaceholder')}
                 className={styles.input}
                 required
               />
@@ -257,7 +259,7 @@ export default function BrochureModal({ isOpen, onClose }) {
             {/* Phone Number with Country Code */}
             <div className={styles.formGroup}>
               <label htmlFor="phone" className={styles.label}>
-                Phone Number <span className={styles.required}>*</span>
+                {t('brochureModal.phone')} <span className={styles.required}>*</span>
               </label>
               <div className={styles.phoneInputGroup}>
                 <CustomCountrySelect
@@ -272,7 +274,7 @@ export default function BrochureModal({ isOpen, onClose }) {
                   name="phone"
                   value={formData.phone}
                   onChange={handleChange}
-                  placeholder="Mobile number"
+                  placeholder={t('brochureModal.phonePlaceholder')}
                   className={styles.phoneInput}
                   required
                 />
@@ -285,14 +287,14 @@ export default function BrochureModal({ isOpen, onClose }) {
               className={styles.submitButton}
               disabled={loading}
             >
-              {loading ? 'Downloading...' : 'Register & Download Brochures'}
+              {loading ? t('brochureModal.downloading') : t('brochureModal.registerAndDownload')}
             </button>
 
             {/* Terms & Conditions */}
             <p className={styles.terms}>
-              By registering, you agree to our{' '}
-              <a href="#" className={styles.link}>Terms and Conditions</a> and{' '}
-              <a href="#" className={styles.link}>Privacy Policy</a>.
+              {t('brochureModal.termsPrefix')}{' '}
+              <a href="#" className={styles.link}>{t('common.terms')}</a> {t('common.and')}{' '}
+              <a href="#" className={styles.link}>{t('common.privacy')}</a>.
             </p>
           </form>
         </div>

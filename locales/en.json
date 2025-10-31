@@ -1,0 +1,306 @@
+{
+  "navbar": {
+    "overview": "Overview",
+    "amenities": "Amenities",
+    "offerings": "Offerings",
+    "whyInvest": "Why Invest",
+    "locality": "Locality",
+    "about": "About",
+    "registerInterest": "Register Interest",
+    "callAria": "Call us",
+    "languageAria": "Switch to Arabic",
+    "menuAria": "Toggle mobile menu"
+  },
+  "hero": {
+    "title": "Alvia",
+    "subtitle": "We Redefine Lifestyle",
+    "location": "Muscat, Oman",
+    "propertyType": "Residential/Commercial",
+    "propertyTypeLabel": "Property Type",
+    "units": "200+",
+    "unitsLabel": "Units",
+    "propertyStatus": "Under Construction",
+    "propertyStatusLabel": "Property Status",
+    "downloadBrochures": "Download Brochures",
+    "about": "The project is located in the Al Hail area of Muscat, Oman, a prime location offering exceptional connectivity and access to key landmarks. Strategically positioned near major highways and thoroughfares, it provides seamless connectivity to Sultan Qaboos Grand Mosque, Muscat International Airport, and the bustling Muscat Expressway."
+  },
+  "amenities": {
+    "heading": "Amenities & Services",
+    "subtitle": "Experience luxury living with world-class facilities",
+    "swimmingPools": {
+      "title": "Swimming Pools",
+      "subtitle": "Alvia Amenities",
+      "description": "Elegant public and private pools designed for residents to unwind and relax in serene surroundings."
+    },
+    "fitnessCenter": {
+      "title": "Fitness Center",
+      "subtitle": "Alvia Amenities",
+      "description": "State-of-the-art gym facilities equipped with modern equipment for your health and wellness journey."
+    },
+    "playAreas": {
+      "title": "Children's Play Areas",
+      "subtitle": "Alvia Amenities",
+      "description": "Safe and engaging play spaces designed to inspire creativity and active play for young residents."
+    },
+    "parking": {
+      "title": "Secure Parking",
+      "subtitle": "Alvia Amenities",
+      "description": "Modern covered parking facilities for residents and guests with round-the-clock security."
+    },
+    "security": {
+      "title": "24/7 Security",
+      "subtitle": "Alvia Amenities",
+      "description": "Advanced surveillance systems and professional security personnel ensuring your peace of mind."
+    },
+    "retail": {
+      "title": "Retail & Dining",
+      "subtitle": "Alvia Amenities",
+      "description": "Shop premium brands and enjoy curated dining experiences right within the Alvia community."
+    },
+    "prayer": {
+      "title": "Prayer Facilities",
+      "subtitle": "Alvia Amenities",
+      "description": "Dedicated spaces for worship and reflection, accommodating the spiritual needs of residents."
+    },
+    "community": {
+      "title": "Community Center",
+      "subtitle": "Alvia Amenities",
+      "description": "Vibrant social hub for gatherings, events, and building connections within the community."
+    },
+    "maintenance": {
+      "title": "Maintenance Services",
+      "subtitle": "Alvia Amenities",
+      "description": "Professional maintenance team ensuring your home and community remain in pristine condition."
+    }
+  },
+  "offerings": {
+    "heading": "Offerings & Virtual Tour",
+    "subtitle": "Explore our diverse range of residential and commercial properties",
+    "residential": "Residential",
+    "commercial": "Commercial",
+    "tourHeading": "Explore in 3D",
+    "tourSubtitle": "Take a virtual tour of our development",
+    "pagination": {
+      "previous": "Previous",
+      "next": "Next"
+    },
+    "residentialTypes": {
+      "studio": {
+        "title": "Studio Apartments",
+        "subtitle": "Compact & Modern"
+      },
+      "oneBed": {
+        "title": "1-Bedroom Units",
+        "subtitle": "Perfect for Couples"
+      },
+      "twoBed": {
+        "title": "2-Bedroom Apartments",
+        "subtitle": "Family Living"
+      },
+      "threeBed": {
+        "title": "3-Bedroom Residences",
+        "subtitle": "Spacious & Luxurious"
+      },
+      "penthouse": {
+        "title": "Penthouses",
+        "subtitle": "Ultimate Luxury"
+      }
+    },
+    "commercialTypes": {
+      "retail": {
+        "title": "Retail Spaces",
+        "subtitle": "High Foot Traffic Zones"
+      },
+      "office": {
+        "title": "Office Suites",
+        "subtitle": "Modern Work Environments"
+      },
+      "restaurant": {
+        "title": "Restaurant Outlets",
+        "subtitle": "Culinary Destinations"
+      },
+      "service": {
+        "title": "Service Centers",
+        "subtitle": "Professional Services"
+      }
+    },
+    "aboutHeading": "Our Offerings",
+    "aboutDescription": "Alvia offers over 300 meticulously designed apartments, catering to families and individuals with a variety of layouts and sizes. Our residential units include one-bedroom apartments with elegant living areas, two-bedroom apartments featuring living rooms and maid's rooms, and three-bedroom apartments with private pools. For commercial opportunities, we provide retail outlets built to drive business success, modern office suites designed for the evolving work environment, and restaurant outlets in high foot traffic zones. Each unit is crafted to perfection, boasting luxurious finishes, state-of-the-art air conditioning systems, and panoramic windows with stunning views.",
+    "features": [
+      "High-quality finishes with premium materials",
+      "Energy-efficient appliances and lighting",
+      "Smart home integration options",
+      "Spacious balconies with scenic views",
+      "Ample storage and modern layouts"
+    ]
+  },
+  "whyInvest": {
+    "heading": "Why Invest?",
+    "subtitle": "Discover the strategic advantages that make ALVIA the perfect investment choice",
+    "economicImpact": {
+      "heading": "Economic Impact",
+      "description": "Choose the plan that fits your lifestyle and investment goals. Flexible payment options designed for your financial comfort.",
+      "cards": {
+        "retail": {
+          "title": "Retail Sector Development",
+          "description": "Driving growth and sophistication across Oman's retail landscape."
+        },
+        "investment": {
+          "title": "Enhanced Investment Opportunities",
+          "description": "Creating attractive new avenues for local and international investors."
+        },
+        "jobs": {
+          "title": "Job Creation",
+          "description": "Generating valuable employment opportunities for Omani citizens."
+        },
+        "tourism": {
+          "title": "Tourism Growth",
+          "description": "Contributing to the expansion and vibrancy of Oman's tourism sector."
+        }
+      }
+    },
+    "whyChoose": {
+      "heading": "Why Choose Alvia",
+      "description": "Discover the unique advantages that make Alvia the perfect choice for your investment and lifestyle needs.",
+      "cards": {
+        "location": {
+          "title": "Strategic, high-growth location",
+          "description": "Located in the thriving Al Hail district with exceptional connectivity."
+        },
+        "returns": {
+          "title": "Over 15% investment return potential",
+          "description": "High ROI potential with competitive rental yields in a growing market."
+        },
+        "management": {
+          "title": "3 years of centralized management",
+          "description": "Professional property management ensuring optimal returns."
+        },
+        "maintenance": {
+          "title": "Zero maintenance fees for the first year",
+          "description": "Enjoy your investment without any maintenance costs."
+        }
+      }
+    },
+    "benefits": {
+      "heading": "Investment Benefits",
+      "description": "Experience the perfect blend of luxury, convenience, and investment potential in one exceptional development.",
+      "cards": {
+        "payment": {
+          "title": "Up to 3 years Flexible payment plans",
+          "description": "Choose from flexible payment options designed to fit your financial comfort."
+        },
+        "pricing": {
+          "title": "Competitive pricing starting from 32K OMR",
+          "description": "Affordable entry point with exceptional value in Muscat's most promising developments."
+        },
+        "luxury": {
+          "title": "Luxury housing, business, and entertainment",
+          "description": "A comprehensive real estate product combining luxury living with business opportunities."
+        },
+        "design": {
+          "title": "Smart design that meets future needs",
+          "description": "Innovative architecture and planning designed to meet the evolving demands of modern living."
+        }
+      }
+    }
+  },
+  "locality": {
+    "heading": "Locality",
+    "subtitle": "Discover the strategic location and connectivity advantages of ALVIA",
+    "connectivity": {
+      "mosque": {
+        "time": "10 min",
+        "destination": "Drive To Sultan Qaboos Grand Mosque"
+      },
+      "airport": {
+        "time": "15 min",
+        "destination": "Drive To Muscat International Airport"
+      },
+      "expressway": {
+        "time": "5 min",
+        "destination": "Drive To Muscat Expressway"
+      }
+    },
+    "mapLink": "View in Google Maps →",
+    "mapAria": "Open location in Google Maps"
+  },
+  "about": {
+    "heading": "About Us",
+    "subtitle": "Learn about our vision and commitment to Oman's future",
+    "vision": {
+      "title": "Oman's Vision 2040",
+      "description": "We align with Oman's Vision 2040, creating distinctive investment opportunities and contributing to making Oman an ideal place to live, work, and explore."
+    },
+    "legacy": {
+      "title": "Legacy of Excellence",
+      "description": "Founded in 2019, Sohar Real Estate Development builds on two decades of experience, establishing quality and sustainability through visionary concepts."
+    },
+    "innovation": {
+      "title": "Modern Innovation",
+      "description": "We create innovative, accessible projects that maximize investment returns while responding to Oman's evolving real estate market aspirations."
+    }
+  },
+  "contact": {
+    "heading": "Get in Touch",
+    "subtitle": "Ready to start your journey with ALVIA? We'd love to hear from you",
+    "contactHeading": "Contact Us At",
+    "phone": "+96924442682",
+    "form": {
+      "name": "Your Name",
+      "email": "Email Address",
+      "phone": "Phone Number",
+      "message": "Your Message",
+      "submit": "Send Message",
+      "sending": "Sending...",
+      "contactUs": "Contact Us",
+      "success": "Your form has been submitted Successfully. You will soon be contacted by an agent for further discussions.",
+      "error": "Something went wrong. Please try again."
+    }
+  },
+  "footer": {
+    "copyright": "Alvia. All rights reserved.",
+    "privacyPolicy": "Privacy Policy",
+    "termsOfService": "Terms of Service",
+    "contact": "Contact",
+    "tagline": "Developed with excellence · Designed for modern living"
+  },
+  "brochureModal": {
+    "title": "Download Brochures",
+    "subtitle": "Choose your preferred brochure to download",
+    "residential": "Residential Brochure",
+    "commercial": "Commercial Brochure",
+    "download": "Download",
+    "close": "Close",
+    "tagline": "Capturing Moments, Creating Memories",
+    "registerNow": "Register Now",
+    "registerSubtitle": "Register to download the brochures now",
+    "fullName": "Full Name",
+    "fullNamePlaceholder": "Enter your full name",
+    "email": "Email Address",
+    "emailPlaceholder": "Enter your email address",
+    "phone": "Phone Number",
+    "phonePlaceholder": "Mobile number",
+    "downloading": "Downloading...",
+    "registerAndDownload": "Register & Download Brochures",
+    "termsPrefix": "By registering, you agree to our"
+  },
+  "callModal": {
+    "title": "Contact Us",
+    "subtitle": "Get in touch with our sales team",
+    "help": "We're here to help. Call us anytime!",
+    "phone": "+968 24442682",
+    "call": "Call Now",
+    "close": "Close"
+  },
+  "paymentPlan": {
+    "heading": "Payment Plan",
+    "subtitle": "Choose the payment plan that works best for your investment goals",
+    "downloadAria": "Download Payment Plan"
+  },
+  "common": {
+    "terms": "Terms and Conditions",
+    "privacy": "Privacy Policy",
+    "and": "and"
+  }
+}
+

@@ -58,8 +58,8 @@ export default async function HomePage() {
       <AmenitiesSection />
       <Offerings data={data.offerings} />
       <WhyInvest image={data.whyInvestImages?.[0]} />
-      <WhyChooseAlvia1 image="/assets/whyinvest/image-2.jpg" />
-      <WhyChooseAlvia2 image="/assets/whyinvest/image-3.jpg" />
+      <WhyChooseAlvia1 image="/assets/whyinvest/image-2.webp" />
+      <WhyChooseAlvia2 image="/assets/whyinvest/image-3.webp" />
       <Locality />
       {/* <PaymentPlan plans={data.paymentPlans} /> */}
       <About content={data.content} />

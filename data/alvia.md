@@ -6,21 +6,21 @@ propertyType: "Residential/Commercial"
 propertyStatus: "Under Construction"
 units: "200+"
 parallaxImages:
-  - "/assets/parallax/01.jpg"
-  - "/assets/parallax/02.jpg"
-  - "/assets/parallax/03.jpg"
+  - "/assets/parallax/01.webp"
+  - "/assets/parallax/02.webp"
+  - "/assets/parallax/03.webp"
 heroAbout: "The project is located in the Al Hail area of Muscat, Oman, a prime location offering exceptional connectivity and access to key landmarks. Strategically positioned near major highways and thoroughfares, it provides seamless connectivity to Sultan Qaboos Grand Mosque, Muscat International Airport, and the bustling Muscat Expressway."
 brochures:
   commercial: "/assets/brochures/commercial-brochure.pdf"
   residential: "/assets/brochures/residential-brochure.pdf"
 whyInvestImages:
-  - "/assets/whyinvest/image-1.jpg"
-  - "/assets/whyinvest/image-2.jpg"
-  - "/assets/whyinvest/image-3.jpg"
+  - "/assets/whyinvest/image-1.webp"
+  - "/assets/whyinvest/image-2.webp"
+  - "/assets/whyinvest/image-3.webp"
 paymentPlans:
-  - image: "/assets/paymentplan/plan-1.png"
+  - image: "/assets/paymentplan/plan-1.webp"
     download: "/assets/paymentplan/plan-1.pdf"
-  - image: "/assets/paymentplan/plan-2.png"
+  - image: "/assets/paymentplan/plan-2.webp"
     download: "/assets/paymentplan/plan-2.pdf"
 ---
 

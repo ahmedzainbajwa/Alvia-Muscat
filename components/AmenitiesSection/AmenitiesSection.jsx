@@ -4,75 +4,77 @@ import { useState, useEffect, useRef } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import Image from 'next/image'
 import styles from './AmenitiesSection.module.css'
-
-// Services data using only available icons
-const servicesData = [
-  {
-    id: 1,
-    title: "Swimming Pools",
-    subtitle: "Alvia Amenities",
-    description: "Elegant public and private pools designed for residents to unwind and relax in serene surroundings.",
-    icon: "/assets/amenities/pool.webp"
-  },
-  {
-    id: 2,
-    title: "Fitness Center",
-    subtitle: "Alvia Amenities", 
-    description: "State-of-the-art gym facilities equipped with modern equipment for your health and wellness journey.",
-    icon: "/assets/amenities/gym.webp"
-  },
-  {
-    id: 3,
-    title: "Children's Play Areas",
-    subtitle: "Alvia Amenities",
-    description: "Safe and engaging play spaces designed to inspire creativity and active play for young residents.",
-    icon: "/assets/amenities/playground.webp"
-  },
-  {
-    id: 4,
-    title: "Secure Parking",
-    subtitle: "Alvia Amenities",
-    description: "Modern covered parking facilities for residents and guests with round-the-clock security.",
-    icon: "/assets/amenities/parking.webp"
-  },
-  {
-    id: 5,
-    title: "24/7 Security",
-    subtitle: "Alvia Amenities",
-    description: "Advanced surveillance systems and professional security personnel ensuring your peace of mind.",
-    icon: "/assets/amenities/security.webp"
-  },
-  {
-    id: 6,
-    title: "Retail & Dining",
-    subtitle: "Alvia Amenities",
-    description: "Shop premium brands and enjoy curated dining experiences right within the Alvia community.",
-    icon: "/assets/amenities/retail.webp"
-  },
-  {
-    id: 7,
-    title: "Prayer Facilities",
-    subtitle: "Alvia Amenities",
-    description: "Dedicated spaces for worship and reflection, accommodating the spiritual needs of residents.",
-    icon: "/assets/amenities/mosque.webp"
-  },
-  {
-    id: 8,
-    title: "Community Center",
-    subtitle: "Alvia Amenities",
-    description: "Vibrant social hub for gatherings, events, and building connections within the community.",
-    icon: "/assets/amenities/community.webp"
-  },
-  {
-    id: 9,
-    title: "Maintenance Services",
-    subtitle: "Alvia Amenities",
-    description: "Professional maintenance team ensuring your home and community remain in pristine condition.",
-    icon: "/assets/amenities/maintenance.webp"
-  }
-]
+import { useLanguage } from '@/contexts/LanguageContext'
 
 export default function AmenitiesSection() {
+  const { t, isRTL } = useLanguage()
+  
+  // Services data using only available icons
+  const servicesData = [
+    {
+      id: 1,
+      title: t('amenities.swimmingPools.title'),
+      subtitle: t('amenities.swimmingPools.subtitle'),
+      description: t('amenities.swimmingPools.description'),
+      icon: "/assets/amenities/pool.webp"
+    },
+    {
+      id: 2,
+      title: t('amenities.fitnessCenter.title'),
+      subtitle: t('amenities.fitnessCenter.subtitle'), 
+      description: t('amenities.fitnessCenter.description'),
+      icon: "/assets/amenities/gym.webp"
+    },
+    {
+      id: 3,
+      title: t('amenities.playAreas.title'),
+      subtitle: t('amenities.playAreas.subtitle'),
+      description: t('amenities.playAreas.description'),
+      icon: "/assets/amenities/playground.webp"
+    },
+    {
+      id: 4,
+      title: t('amenities.parking.title'),
+      subtitle: t('amenities.parking.subtitle'),
+      description: t('amenities.parking.description'),
+      icon: "/assets/amenities/parking.webp"
+    },
+    {
+      id: 5,
+      title: t('amenities.security.title'),
+      subtitle: t('amenities.security.subtitle'),
+      description: t('amenities.security.description'),
+      icon: "/assets/amenities/security.webp"
+    },
+    {
+      id: 6,
+      title: t('amenities.retail.title'),
+      subtitle: t('amenities.retail.subtitle'),
+      description: t('amenities.retail.description'),
+      icon: "/assets/amenities/retail.webp"
+    },
+    {
+      id: 7,
+      title: t('amenities.prayer.title'),
+      subtitle: t('amenities.prayer.subtitle'),
+      description: t('amenities.prayer.description'),
+      icon: "/assets/amenities/mosque.webp"
+    },
+    {
+      id: 8,
+      title: t('amenities.community.title'),
+      subtitle: t('amenities.community.subtitle'),
+      description: t('amenities.community.description'),
+      icon: "/assets/amenities/community.webp"
+    },
+    {
+      id: 9,
+      title: t('amenities.maintenance.title'),
+      subtitle: t('amenities.maintenance.subtitle'),
+      description: t('amenities.maintenance.description'),
+      icon: "/assets/amenities/maintenance.webp"
+    }
+  ]
   const [currentIndex, setCurrentIndex] = useState(0)
   const [isPaused, setIsPaused] = useState(false)
   const [progress, setProgress] = useState(0)
@@ -113,11 +115,11 @@ export default function AmenitiesSection() {
     }
     
     // Calculate the offset to rotate the orbit
-    // Desktop: active item at middle-left (180 degrees)
-    // Mobile/Tablet: active item at left (90 degrees)
+    // Desktop: active item at middle-left (180 degrees) for LTR, top-right (315 degrees) for RTL
+    // Mobile/Tablet: active item at left (90 degrees) - same for both LTR and RTL
     const orbitOffset = width > 1199 
-      ? (360 / total) * currentIndex + 180  // Desktop: middle-left
-      : (360 / total) * currentIndex + 90   // Mobile/Tablet: left
+      ? (360 / total) * currentIndex + (isRTL ? 315 : 180)  // Desktop: top-right for RTL, middle-left for LTR
+      : (360 / total) * currentIndex + 90   // Mobile/Tablet: left (unchanged for RTL)
     // Each item's angle relative to the current active item
     const relativeAngle = (360 / total) * index - orbitOffset
     
@@ -241,9 +243,9 @@ export default function AmenitiesSection() {
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
           >
-            <h3 className={styles.heading}>Amenities & Services</h3>
+            <h3 className={styles.heading}>{t('amenities.heading')}</h3>
             <p className={styles.subtitle}>
-              Discover the premium amenities and services that enhance your living experience
+              {t('amenities.subtitle')}
             </p>
           </motion.div>
 
@@ -278,8 +280,11 @@ export default function AmenitiesSection() {
               
               {/* Orbital thumbnails */}
               {servicesData.map((service, index) => {
+                const adjustedActiveIndex = (isRTL && currentWidth > 1199)
+                  ? (currentIndex - 1 + servicesData.length) % servicesData.length
+                  : currentIndex
                 const pos = getOrbitalPosition(index, servicesData.length)
-                const isActive = index === currentIndex
+                const isActive = index === adjustedActiveIndex
                 
                 return (
                   <motion.button

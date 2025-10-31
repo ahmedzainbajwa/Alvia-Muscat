@@ -6,9 +6,11 @@ import { useInView } from 'react-intersection-observer'
 import Image from 'next/image'
 import Chip from '../Chip/Chip'
 import styles from './Offerings.module.css'
+import { useLanguage } from '@/contexts/LanguageContext'
 import clsx from 'clsx'
 
 export default function Offerings({ data }) {
+  const { t } = useLanguage()
   const [activeTab, setActiveTab] = useState('residential')
   const [currentPage, setCurrentPage] = useState(1)
   const [totalPages, setTotalPages] = useState(1)
@@ -130,9 +132,9 @@ export default function Offerings({ data }) {
           transition={{ duration: 0.6 }}
         >
           {/* Heading */}
-          <h3 className={styles.heading}>Offerings & Virtual Tour</h3>
+          <h3 className={styles.heading}>{t('offerings.heading')}</h3>
           <p className={styles.subtitle}>
-            Explore our diverse range of residential and commercial properties
+            {t('offerings.subtitle')}
           </p>
 
           {/* Tabs */}
@@ -140,16 +142,16 @@ export default function Offerings({ data }) {
             <Chip 
               active={activeTab === 'residential'}
               onClick={() => setActiveTab('residential')}
-              ariaLabel="View Residential Offerings"
+              ariaLabel={t('offerings.residential')}
             >
-              Residential
+              {t('offerings.residential')}
             </Chip>
             <Chip 
               active={activeTab === 'commercial'}
               onClick={() => setActiveTab('commercial')}
-              ariaLabel="View Commercial Offerings"
+              ariaLabel={t('offerings.commercial')}
             >
-              Commercial
+              {t('offerings.commercial')}
             </Chip>
           </div>
 
@@ -220,18 +222,15 @@ export default function Offerings({ data }) {
 
           {/* About Alvia */}
           <div className={styles.aboutSection}>
-            <h3 className={styles.aboutHeading}>Our Offerings</h3>
+            <h3 className={styles.aboutHeading}>{t('offerings.aboutHeading')}</h3>
             <p className={styles.aboutDescription}>
-              Alvia offers over 300 meticulously designed apartments, catering to families and individuals with a variety of layouts and sizes. 
-              Our residential units include one-bedroom apartments with elegant living areas, two-bedroom apartments featuring living rooms and maid's rooms, and three-bedroom apartments with private pools. 
-              For commercial opportunities, we provide retail outlets built to drive business success, modern office suites designed for the evolving work environment, and restaurant outlets in high foot traffic zones. 
-              Each unit is crafted to perfection, boasting luxurious finishes, state-of-the-art air conditioning systems, and panoramic windows with stunning views.
+              {t('offerings.aboutDescription')}
             </p>
           </div>
 
           {/* 3D Tour */}
           <div className={styles.tourSection}>
-            <h4 className={styles.tourHeading}>Explore in 3D</h4>
+            <h4 className={styles.tourHeading}>{t('offerings.tourHeading')}</h4>
             <div className={styles.tourContainer}>
               <iframe
                 src={data.tourUrl}

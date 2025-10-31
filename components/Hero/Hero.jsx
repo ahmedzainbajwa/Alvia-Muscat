@@ -6,15 +6,17 @@ import Image from 'next/image'
 import styles from './Hero.module.css'
 import Button from '../Button/Button'
 import BrochureModal from './BrochureModal'
+import { useLanguage } from '@/contexts/LanguageContext'
 
 export default function Hero({ data }) {
+  const { t } = useLanguage()
   const [unitsCount, setUnitsCount] = useState(0)
   const [isModalOpen, setIsModalOpen] = useState(false)
   
   // Animated counter for units with easing
   useEffect(() => {
     const targetValue = parseInt(data.units) || 200
-    const duration = 3500 // 3.5 seconds for smoother animation
+    const duration = 1800 // faster stabilization
     const frameRate = 60 // 60fps for smoothness
     const totalFrames = (duration / 1000) * frameRate
     const startTime = Date.now()
@@ -48,12 +50,17 @@ export default function Hero({ data }) {
       {/* Background Video */}
       <video
         className={styles.heroVideo}
-        src="/assets/hero/alvia-flythrough.mp4"
         autoPlay
         muted
         loop
         playsInline
-      />
+        preload="metadata"
+        poster="/assets/hero/Alvia-AnimatedPng.png"
+      >
+        {/* Prefer modern codec if available; fallback to MP4 */}
+        <source src="/assets/hero/alvia-flythrough.vp9.webm" type="video/webm" />
+        <source src="/assets/hero/alvia-flythrough.mp4" type="video/mp4" />
+      </video>
 
       {/* Dark Overlay */}
       <div className={styles.overlay}></div>
@@ -73,17 +80,17 @@ export default function Hero({ data }) {
           className={styles.title}
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.3, duration: 1.2 }}
+          transition={{ delay: 0, duration: 0.9 }}
         >
           <Image 
-            src="/assets/hero/logo2.png"
+            src="/assets/hero/logo2.webp"
             alt="Alvia"
             width={230}
             height={110}
             className={styles.logo}
             priority
           />
-          {data.subtitle}
+          {t('hero.subtitle')}
         </motion.h1>
 
         {/* Location */}
@@ -91,7 +98,7 @@ export default function Hero({ data }) {
           className={styles.locationWrapper}
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.6, duration: 1.1 }}
+          transition={{ delay: 0.2, duration: 0.8 }}
         >
           <svg 
             className={styles.locationIcon} 
@@ -105,7 +112,7 @@ export default function Hero({ data }) {
             <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
             <circle cx="12" cy="10" r="3"/>
           </svg>
-          <span className={styles.location}>{data.location}</span>
+          <span className={styles.location}>{t('hero.location')}</span>
         </motion.div>
 
         {/* Property Details */}
@@ -113,21 +120,21 @@ export default function Hero({ data }) {
           className={styles.details}
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.9, duration: 1.1 }}
+          transition={{ delay: 0.3, duration: 0.8 }}
         >
           <div className={styles.detailRow}>
-            <span className={styles.value}>{data.propertyType}</span>
-            <span className={styles.label}>Property Type</span>
+            <span className={styles.value}>{t('hero.propertyType')}</span>
+            <span className={styles.label}>{t('hero.propertyTypeLabel')}</span>
           </div>
           <div className={styles.detailRow}>
             <span className={styles.value}>
-              {unitsCount}{data.units.includes('+') ? '+' : ''}
+              {unitsCount}{t('hero.units').includes('+') ? '+' : ''}
             </span>
-            <span className={styles.label}>Units</span>
+            <span className={styles.label}>{t('hero.unitsLabel')}</span>
           </div>
           <div className={styles.detailRow}>
-            <span className={styles.value}>{data.propertyStatus}</span>
-            <span className={styles.label}>Property Status</span>
+            <span className={styles.value}>{t('hero.propertyStatus')}</span>
+            <span className={styles.label}>{t('hero.propertyStatusLabel')}</span>
           </div>
         </motion.div>
 
@@ -136,20 +143,20 @@ export default function Hero({ data }) {
           className={styles.buttons}
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 1, duration: 1.1 }}
+          transition={{ delay: 0.4, duration: 0.8 }}
         >
           <Button 
             variant="primary" 
             size="download"
             onClick={() => setIsModalOpen(true)}
-            ariaLabel="Download Brochures"
+            ariaLabel={t('hero.downloadBrochures')}
           >
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
               <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
               <polyline points="7 10 12 15 17 10"/>
               <line x1="12" y1="15" x2="12" y2="3"/>
             </svg>
-            Download Brochures
+            {t('hero.downloadBrochures')}
           </Button>
         </motion.div>
       </motion.div>

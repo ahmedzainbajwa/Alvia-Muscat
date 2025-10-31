@@ -110,7 +110,7 @@ Visit [http://localhost:3000](http://localhost:3000)
 All placeholders are in `/public/assets/`. See `/public/assets/ASSETS-README.md` for detailed requirements.
 
 **Priority assets to replace:**
-- Logo (`/assets/hero/logo.png`)
+- Logo (`/assets/hero/logo.webp`)
 - Parallax images (3 images, 1920x1080px)
 - Offering images (9 total: 5 residential, 4 commercial)
 - Amenity icons (10 SVG icons)

@@ -4,23 +4,25 @@ import React from 'react'
 import { motion } from 'framer-motion'
 import { useInView } from 'react-intersection-observer'
 import styles from './Locality.module.css'
-
-const connectivityData = [
-  {
-    time: '10 min',
-    destination: 'Drive To Sultan Qaboos Grand Mosque'
-  },
-  {
-    time: '15 min',
-    destination: 'Drive To Muscat International Airport'
-  },
-  {
-    time: '5 min',
-    destination: 'Drive To Muscat Expressway'
-  }
-]
+import { useLanguage } from '@/contexts/LanguageContext'
 
 export default function Locality() {
+  const { t } = useLanguage()
+  
+  const connectivityData = [
+    {
+      time: t('locality.connectivity.mosque.time'),
+      destination: t('locality.connectivity.mosque.destination')
+    },
+    {
+      time: t('locality.connectivity.airport.time'),
+      destination: t('locality.connectivity.airport.destination')
+    },
+    {
+      time: t('locality.connectivity.expressway.time'),
+      destination: t('locality.connectivity.expressway.destination')
+    }
+  ]
   const [ref, inView] = useInView({
     triggerOnce: true,
     threshold: 0.2
@@ -35,9 +37,9 @@ export default function Locality() {
           animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
           transition={{ duration: 0.6 }}
         >
-          <h3 className={styles.heading}>Locality</h3>
+          <h3 className={styles.heading}>{t('locality.heading')}</h3>
           <p className={styles.subtitle}>
-            Discover the strategic location and connectivity advantages of ALVIA
+            {t('locality.subtitle')}
           </p>
 
           {/* Connectivity Info Blocks */}
@@ -67,9 +69,9 @@ export default function Locality() {
                   target="_blank" 
                   rel="noopener noreferrer"
                   className={styles.mapLink}
-                  aria-label="Open location in Google Maps"
+                  aria-label={t('locality.mapAria')}
                 >
-                  View in Google Maps →
+                  {t('locality.mapLink')}
                 </a>
               </div>
             </div>

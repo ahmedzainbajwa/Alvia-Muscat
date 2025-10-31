@@ -3,8 +3,10 @@
 import { motion } from 'framer-motion'
 import { useInView } from 'react-intersection-observer'
 import styles from './PropertyDetails.module.css'
+import { useLanguage } from '@/contexts/LanguageContext'
 
 export default function PropertyDetails({ data }) {
+  const { t } = useLanguage()
   const [ref, inView] = useInView({
     triggerOnce: true,
     threshold: 0.1
@@ -23,15 +25,15 @@ export default function PropertyDetails({ data }) {
           <div className={styles.details}>
             <div className={styles.detailRow}>
               <span className={styles.value}>{data.propertyType}</span>
-              <span className={styles.label}>Property Type</span>
+              <span className={styles.label}>{t('hero.propertyTypeLabel')}</span>
             </div>
             <div className={styles.detailRow}>
               <span className={styles.value}>{data.propertyStatus}</span>
-              <span className={styles.label}>Property Status</span>
+              <span className={styles.label}>{t('hero.propertyStatusLabel')}</span>
             </div>
             <div className={styles.detailRow}>
               <span className={styles.value}>{data.units}</span>
-              <span className={styles.label}>Units</span>
+              <span className={styles.label}>{t('hero.unitsLabel')}</span>
             </div>
           </div>
 

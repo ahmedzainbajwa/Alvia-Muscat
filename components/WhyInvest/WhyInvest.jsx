@@ -4,12 +4,16 @@ import { motion } from 'framer-motion'
 import { useInView } from 'react-intersection-observer'
 import Image from 'next/image'
 import styles from './WhyInvest.module.css'
+import { useLanguage } from '@/contexts/LanguageContext'
 
-const advantageCards = [
+function WhyInvestContent() {
+  const { t } = useLanguage()
+  
+  const advantageCards = [
   {
     id: 1,
-    title: 'Retail Sector Development',
-    description: 'Driving growth and sophistication across Oman\'s retail landscape.',
+    title: t('whyInvest.economicImpact.cards.retail.title'),
+    description: t('whyInvest.economicImpact.cards.retail.description'),
     icon: (
       <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
         <path d="M3 7v10a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2H5a2 2 0 0 0-2-2z"/>
@@ -21,8 +25,8 @@ const advantageCards = [
   },
   {
     id: 2,
-    title: 'Enhanced Investment Opportunities',
-    description: 'Creating attractive new avenues for local and international investors.',
+    title: t('whyInvest.economicImpact.cards.investment.title'),
+    description: t('whyInvest.economicImpact.cards.investment.description'),
     icon: (
       <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
         <path d="M3 3v18h18"/>
@@ -35,8 +39,8 @@ const advantageCards = [
   },
   {
     id: 3,
-    title: 'Job Creation',
-    description: 'Generating valuable employment opportunities for Omani citizens.',
+    title: t('whyInvest.economicImpact.cards.jobs.title'),
+    description: t('whyInvest.economicImpact.cards.jobs.description'),
     icon: (
       <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
         <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/>
@@ -49,8 +53,8 @@ const advantageCards = [
   },
   {
     id: 4,
-    title: 'Tourism Growth',
-    description: 'Contributing to the expansion and vibrancy of Oman\'s tourism sector.',
+    title: t('whyInvest.economicImpact.cards.tourism.title'),
+    description: t('whyInvest.economicImpact.cards.tourism.description'),
     icon: (
       <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
         <circle cx="12" cy="12" r="10"/>
@@ -61,6 +65,9 @@ const advantageCards = [
     color: '#8B5CF6'
   }
 ]
+  
+  return { t, advantageCards }
+}
 
 const investmentChips = [
   'Strategic, high-growth location',
@@ -72,6 +79,7 @@ const investmentChips = [
 ]
 
 export default function WhyInvest({ image }) {
+  const { t, advantageCards } = WhyInvestContent()
   const [ref, inView] = useInView({
     triggerOnce: true,
     threshold: 0.2
@@ -88,9 +96,9 @@ export default function WhyInvest({ image }) {
         >
           {/* Top Section */}
           <div className={styles.topSection}>
-            <h3 className={styles.heading}>Why Invest?</h3>
+            <h3 className={styles.heading}>{t('whyInvest.heading')}</h3>
             <p className={styles.subtitle}>
-              Discover the strategic advantages that make ALVIA the perfect investment choice
+              {t('whyInvest.subtitle')}
             </p>
           </div>
 
@@ -98,9 +106,9 @@ export default function WhyInvest({ image }) {
           <div className={styles.mainLayout}>
             {/* Left Column - Heading, Subtitle, and Advantage Cards */}
             <div className={styles.leftColumn}>
-              <h5 className={styles.advantagesHeading}>Economic Impact</h5>
+              <h5 className={styles.advantagesHeading}>{t('whyInvest.economicImpact.heading')}</h5>
               <p className={styles.advantagesDescription}>
-                Choose the plan that fits your lifestyle and investment goals. Flexible payment options designed for your financial comfort.
+                {t('whyInvest.economicImpact.description')}
               </p>
               <div className={styles.advantageCards}>
                 {advantageCards.map((card) => (
@@ -141,6 +149,7 @@ export default function WhyInvest({ image }) {
 
 // Second Section Component
 export function WhyChooseAlvia1({ image }) {
+  const { t } = useLanguage()
   const [ref, inView] = useInView({
     triggerOnce: true,
     threshold: 0.2
@@ -149,8 +158,8 @@ export function WhyChooseAlvia1({ image }) {
   const advantageCards2 = [
     {
       id: 1,
-      title: 'Strategic, high-growth location',
-      description: 'Located in the thriving Al Hail district with exceptional connectivity.',
+      title: t('whyInvest.whyChoose.cards.location.title'),
+      description: t('whyInvest.whyChoose.cards.location.description'),
       icon: (
         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
           <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
@@ -161,8 +170,8 @@ export function WhyChooseAlvia1({ image }) {
     },
     {
       id: 2,
-      title: 'Over 15% investment return potential',
-      description: 'High ROI potential with competitive rental yields in a growing market.',
+      title: t('whyInvest.whyChoose.cards.returns.title'),
+      description: t('whyInvest.whyChoose.cards.returns.description'),
       icon: (
         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
           <circle cx="12" cy="12" r="10"/>
@@ -177,8 +186,8 @@ export function WhyChooseAlvia1({ image }) {
     },
     {
       id: 3,
-      title: '3 years of centralized management',
-      description: 'Professional property management ensuring optimal returns.',
+      title: t('whyInvest.whyChoose.cards.management.title'),
+      description: t('whyInvest.whyChoose.cards.management.description'),
       icon: (
         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
           <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
@@ -191,8 +200,8 @@ export function WhyChooseAlvia1({ image }) {
     },
     {
       id: 4,
-      title: 'Zero maintenance fees for the first year',
-      description: 'Enjoy your investment without any maintenance costs.',
+      title: t('whyInvest.whyChoose.cards.maintenance.title'),
+      description: t('whyInvest.whyChoose.cards.maintenance.description'),
       icon: (
         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
           <circle cx="12" cy="12" r="10"/>
@@ -231,9 +240,9 @@ export function WhyChooseAlvia1({ image }) {
 
                 {/* Right Column - Heading, Subtitle, and Advantage Cards */}
                 <div className={styles.rightColumn}>
-                  <h5 className={styles.advantagesHeading}>Why Choose Alvia</h5>
+                  <h5 className={styles.advantagesHeading}>{t('whyInvest.whyChoose.heading')}</h5>
                   <p className={styles.advantagesDescription}>
-                    Discover the unique advantages that make Alvia the perfect choice for your investment and lifestyle needs.
+                    {t('whyInvest.whyChoose.description')}
                   </p>
               <div className={styles.advantageCards}>
                 {advantageCards2.map((card) => (
@@ -258,6 +267,7 @@ export function WhyChooseAlvia1({ image }) {
 
 // Third Section Component
 export function WhyChooseAlvia2({ image }) {
+  const { t } = useLanguage()
   const [ref, inView] = useInView({
     triggerOnce: true,
     threshold: 0.2
@@ -266,8 +276,8 @@ export function WhyChooseAlvia2({ image }) {
   const advantageCards3 = [
     {
       id: 1,
-      title: 'Up to 3 years Flexible payment plans',
-      description: 'Choose from flexible payment options designed to fit your financial comfort.',
+      title: t('whyInvest.benefits.cards.payment.title'),
+      description: t('whyInvest.benefits.cards.payment.description'),
       icon: (
         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
           <rect x="1" y="4" width="22" height="16" rx="2" ry="2"/>
@@ -278,8 +288,8 @@ export function WhyChooseAlvia2({ image }) {
     },
     {
       id: 2,
-      title: 'Competitive pricing starting from 32K OMR',
-      description: 'Affordable entry point with exceptional value in Muscat\'s most promising developments.',
+      title: t('whyInvest.benefits.cards.pricing.title'),
+      description: t('whyInvest.benefits.cards.pricing.description'),
       icon: (
         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
           <line x1="12" y1="1" x2="12" y2="23"/>
@@ -290,8 +300,8 @@ export function WhyChooseAlvia2({ image }) {
     },
     {
       id: 3,
-      title: 'Luxury housing, business, and entertainment',
-      description: 'A comprehensive real estate product combining luxury living with business opportunities.',
+      title: t('whyInvest.benefits.cards.luxury.title'),
+      description: t('whyInvest.benefits.cards.luxury.description'),
       icon: (
         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
           <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
@@ -302,8 +312,8 @@ export function WhyChooseAlvia2({ image }) {
     },
     {
       id: 4,
-      title: 'Smart design that meets future needs',
-      description: 'Innovative architecture and planning designed to meet the evolving demands of modern living.',
+      title: t('whyInvest.benefits.cards.design.title'),
+      description: t('whyInvest.benefits.cards.design.description'),
       icon: (
         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
           <circle cx="12" cy="12" r="3"/>
@@ -327,7 +337,7 @@ export function WhyChooseAlvia2({ image }) {
           <div className={styles.mainLayout}>
             {/* Left Column - Heading, Subtitle, and Advantage Cards */}
             <div className={styles.leftColumn}>
-              <h5 className={styles.advantagesHeading}>Investment Benefits</h5>
+              <h5 className={styles.advantagesHeading}>{t('whyInvest.benefits.heading')}</h5>
               <p className={styles.advantagesDescription}>
                 Experience the perfect blend of luxury, convenience, and investment potential in one exceptional development.
               </p>

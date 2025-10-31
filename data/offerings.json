@@ -4,35 +4,35 @@
       "id": "res-1",
       "title": "Studio Apartments",
       "subtitle": "Compact & Modern",
-      "image": "/assets/offerings/residential/studio.jpg",
+      "image": "/assets/offerings/residential/studio.webp",
       "heightClass": "tall"
     },
     {
       "id": "res-2",
       "title": "1-Bedroom Units",
       "subtitle": "Perfect for Couples",
-      "image": "/assets/offerings/residential/1bed.jpg",
+      "image": "/assets/offerings/residential/1bed.webp",
       "heightClass": "short"
     },
     {
       "id": "res-3",
       "title": "2-Bedroom Apartments",
       "subtitle": "Family Living",
-      "image": "/assets/offerings/residential/2bed.jpg",
+      "image": "/assets/offerings/residential/2bed.webp",
       "heightClass": "tall"
     },
     {
       "id": "res-4",
       "title": "3-Bedroom Residences",
       "subtitle": "Spacious & Luxurious",
-      "image": "/assets/offerings/residential/3bed.jpg",
+      "image": "/assets/offerings/residential/3bed.webp",
       "heightClass": "short"
     },
     {
       "id": "res-5",
       "title": "Penthouses",
       "subtitle": "Ultimate Luxury",
-      "image": "/assets/offerings/residential/penthouse.jpg",
+      "image": "/assets/offerings/residential/penthouse.webp",
       "heightClass": "tall"
     }
   ],
@@ -41,28 +41,28 @@
       "id": "com-1",
       "title": "Retail Spaces",
       "subtitle": "High Foot Traffic Zones",
-      "image": "/assets/offerings/commercial/retail.jpg",
+      "image": "/assets/offerings/commercial/retail.webp",
       "heightClass": "tall"
     },
     {
       "id": "com-2",
       "title": "Office Suites",
       "subtitle": "Modern Work Environments",
-      "image": "/assets/offerings/commercial/office.jpg",
+      "image": "/assets/offerings/commercial/office.webp",
       "heightClass": "short"
     },
     {
       "id": "com-3",
       "title": "Restaurant Outlets",
       "subtitle": "Culinary Destinations",
-      "image": "/assets/offerings/commercial/restaurant.jpg",
+      "image": "/assets/offerings/commercial/restaurant.webp",
       "heightClass": "tall"
     },
     {
       "id": "com-4",
       "title": "Service Centers",
       "subtitle": "Professional Services",
-      "image": "/assets/offerings/commercial/service.jpg",
+      "image": "/assets/offerings/commercial/service.webp",
       "heightClass": "short"
     }
   ],

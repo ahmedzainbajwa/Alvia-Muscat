@@ -3,8 +3,10 @@
 import { useEffect } from 'react'
 import Image from 'next/image'
 import styles from './CallModal.module.css'
+import { useLanguage } from '@/contexts/LanguageContext'
 
 export default function CallModal({ isOpen, onClose }) {
+  const { t } = useLanguage()
   // Lock body scroll when modal is open
   useEffect(() => {
     if (isOpen) {
@@ -38,7 +40,7 @@ export default function CallModal({ isOpen, onClose }) {
         {/* Header */}
         <div className={styles.header}>
           <Image 
-            src="/assets/QR/topcover.jpg"
+            src="/assets/QR/topcover.webp"
             alt="Header background"
             fill
             className={styles.headerBackground}
@@ -57,10 +59,10 @@ export default function CallModal({ isOpen, onClose }) {
                 <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
               </svg>
             </div>
-            <h2 className={styles.title}>Contact Us</h2>
+            <h2 className={styles.title}>{t('callModal.title')}</h2>
             
             {/* Close Button */}
-            <button className={styles.closeButton} onClick={onClose} aria-label="Close">
+            <button className={styles.closeButton} onClick={onClose} aria-label={t('brochureModal.close')}>
               ×
             </button>
           </div>
@@ -71,7 +73,7 @@ export default function CallModal({ isOpen, onClose }) {
           {/* QR Code */}
           <div className={styles.qrCodeContainer}>
             <Image
-              src="/assets/QR/qr-tel-96924442682.png"
+              src="/assets/QR/qr-tel-96924442682.webp"
               alt="Call Us QR Code"
               width={200}
               height={200}
@@ -81,7 +83,7 @@ export default function CallModal({ isOpen, onClose }) {
 
           {/* Instructions */}
           <p className={styles.instructions}>
-            Scan this QR code with your phone to call us directly
+            {t('callModal.subtitle')}
           </p>
 
           {/* Phone Number */}
@@ -98,7 +100,7 @@ export default function CallModal({ isOpen, onClose }) {
 
           {/* Message */}
           <p className={styles.message}>
-            We&apos;re here to help. Call us anytime!
+            {t('callModal.help')}
           </p>
         </div>
       </div>

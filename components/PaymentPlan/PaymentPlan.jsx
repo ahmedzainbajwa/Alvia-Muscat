@@ -5,8 +5,10 @@ import { useInView } from 'react-intersection-observer'
 import Image from 'next/image'
 import Button from '../Button/Button'
 import styles from './PaymentPlan.module.css'
+import { useLanguage } from '@/contexts/LanguageContext'
 
 export default function PaymentPlan({ plans = [] }) {
+  const { t } = useLanguage()
   const [ref, inView] = useInView({
     triggerOnce: true,
     threshold: 0.2
@@ -21,9 +23,9 @@ export default function PaymentPlan({ plans = [] }) {
           animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
           transition={{ duration: 0.6 }}
         >
-          <h3 className={styles.heading}>Payment Plan</h3>
+          <h3 className={styles.heading}>{t('paymentPlan.heading')}</h3>
           <p className={styles.subtitle}>
-            Choose the payment plan that works best for your investment goals
+            {t('paymentPlan.subtitle')}
           </p>
 
           <div className={styles.planGrid}>
@@ -44,7 +46,7 @@ export default function PaymentPlan({ plans = [] }) {
                     variant="circular"
                     href={plan.download}
                     download
-                    ariaLabel={`Download Payment Plan ${index + 1}`}
+                    ariaLabel={t('paymentPlan.downloadAria')}
                   >
                     <svg 
                       width="20" 

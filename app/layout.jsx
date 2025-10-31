@@ -1,10 +1,19 @@
-import { Manrope } from 'next/font/google'
+import { Manrope, IBM_Plex_Sans_Arabic } from 'next/font/google'
 import './globals.css'
+import { LanguageProvider } from '@/contexts/LanguageContext'
 
 const manrope = Manrope({
   subsets: ['latin'],
   display: 'swap',
   variable: '--font-manrope',
+  weight: ['400','600']
+})
+
+const plexArabic = IBM_Plex_Sans_Arabic({
+  subsets: ['arabic'],
+  display: 'swap',
+  variable: '--font-plex-arabic',
+  weight: ['400','600']
 })
 
 export const metadata = {
@@ -15,9 +24,11 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en" className={manrope.variable}>
+    <html lang="en" className={`${manrope.variable} ${plexArabic.variable}`}>
       <body className={manrope.className}>
-        {children}
+        <LanguageProvider>
+          {children}
+        </LanguageProvider>
       </body>
     </html>
   )

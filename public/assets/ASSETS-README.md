@@ -53,7 +53,7 @@ This directory contains all the static assets for the Alvia landing page.
 ## How to Replace Assets
 
 ### 1. Logo (Required)
-- Replace `/public/assets/hero/logo.png` with your actual logo
+- Replace `/public/assets/hero/logo.webp` with your actual logo
 - Recommended size: 120x40px (or maintain aspect ratio)
 - Format: PNG with transparency or SVG
 
@@ -77,8 +77,8 @@ This directory contains all the static assets for the Alvia landing page.
 - Format: JPG or WebP
 
 ### 5. Why Invest Images (Required)
-- Replace `/public/assets/whyinvest/image-1.jpg` (large, 1200x466px)
-- Replace `/public/assets/whyinvest/image-2.jpg` and `image-3.jpg` (600x360px each)
+- Replace `/public/assets/whyinvest/image-1.webp` (large, 1200x466px)
+- Replace `/public/assets/whyinvest/image-2.webp` and `image-3.jpg` (600x360px each)
 - Format: JPG or WebP
 
 ### 6. Payment Plans (Required)

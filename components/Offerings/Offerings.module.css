@@ -223,6 +223,12 @@
   margin: 0;
 }
 
+/* RTL (Arabic) alignment for About section */
+html[dir="rtl"] .aboutHeading,
+html[dir="rtl"] .aboutDescription {
+  text-align: right;
+}
+
 
 /* 3D Tour */
 .tourSection {

@@ -98,10 +98,39 @@
   background-color: rgba(255, 255, 255, 0.1);
 }
 
+.languageText {
+  font-size: var(--font-regular-m);
+  font-weight: 500;
+  color: var(--color-white);
+}
+
 .languageIcon {
   width: 20px;
   height: 20px;
   color: var(--color-white);
+}
+
+/* ===================================
+   RTL (Arabic) adjustments for jump links
+   =================================== */
+html[dir="rtl"] .navLink,
+html[dir="rtl"] .mobileNavLink {
+  font-family: var(--font-plex-arabic);
+  font-size: 16px;
+  line-height: 1.5;
+  font-weight: 600;
+  letter-spacing: 0;
+}
+
+html[dir="rtl"] .navLink.active,
+html[dir="rtl"] .mobileNavLink.active {
+  font-weight: 600;
+}
+
+@media (min-width: 1200px) {
+  html[dir="rtl"] .navLink {
+    font-size: 17px;
+  }
 }
 
 .arabicText {

@@ -4,8 +4,10 @@ import { motion } from 'framer-motion'
 import { useInView } from 'react-intersection-observer'
 import Image from 'next/image'
 import styles from './About.module.css'
+import { useLanguage } from '@/contexts/LanguageContext'
 
 export default function About({ content }) {
+  const { t } = useLanguage()
   const [ref, inView] = useInView({
     triggerOnce: true,
     threshold: 0.2
@@ -24,7 +26,7 @@ export default function About({ content }) {
           {/* Edge-to-edge Image with Overlay */}
           <div className={styles.imageContainer}>
             <Image
-              src="/assets/whyinvest/image-1.jpg"
+              src="/assets/whyinvest/image-1.webp"
               alt="Alvia development"
               fill
               style={{ objectFit: 'cover' }}
@@ -32,24 +34,18 @@ export default function About({ content }) {
             />
             <div className={styles.gradientOverlay}></div>
             <div className={styles.textOverlay}>
-              <h3 className={styles.heading}>About Us</h3>
+              <h3 className={styles.heading}>{t('about.heading')}</h3>
               <p className={styles.subtitle}>
-                Learn about our vision and commitment to Oman's future
+                {t('about.subtitle')}
               </p>
               <p className={styles.paragraph}>
-                <strong>Oman&apos;s Vision 2040</strong> - We align with Oman's Vision 2040, 
-                creating distinctive investment opportunities and contributing to making Oman 
-                an ideal place to live, work, and explore.
+                <strong>{t('about.vision.title')}</strong> - {t('about.vision.description')}
               </p>
               <p className={styles.paragraph}>
-                <strong>Legacy of Excellence</strong> - Founded in 2019, Sohar Real Estate 
-                Development builds on two decades of experience, establishing quality and 
-                sustainability through visionary concepts.
+                <strong>{t('about.legacy.title')}</strong> - {t('about.legacy.description')}
               </p>
               <p className={styles.paragraph}>
-                <strong>Modern Innovation</strong> - We create innovative, accessible projects 
-                that maximize investment returns while responding to Oman's evolving real estate 
-                market aspirations.
+                <strong>{t('about.innovation.title')}</strong> - {t('about.innovation.description')}
               </p>
             </div>
           </div>
