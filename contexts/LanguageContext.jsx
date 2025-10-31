@@ -2,13 +2,14 @@
 
 import { createContext, useContext, useState, useEffect } from 'react'
 import { useTranslation } from 'react-i18next'
-import { usePathname } from 'next/navigation'
+import { usePathname, useRouter } from 'next/navigation'
 
 const LanguageContext = createContext()
 
 export function LanguageProvider({ children }) {
   const { t: i18nT, i18n } = useTranslation()
   const pathname = usePathname()
+  const router = useRouter()
   const [language, setLanguage] = useState('en')
   const [mounted, setMounted] = useState(false)
 
@@ -45,8 +46,16 @@ export function LanguageProvider({ children }) {
     }
     setLanguage(newLanguage)
     
-    // Manipulate pathname to add/remove /en prefix
-    let newPath = pathname || '/alvia'
+    // Get current pathname - use window.location as fallback for reliability
+    const currentPath = pathname || (typeof window !== 'undefined' ? window.location.pathname : null) || '/alvia'
+    let newPath = currentPath
+    
+    // Normalize path to ensure it starts with /alvia or /en/alvia
+    if (!newPath.startsWith('/alvia') && !newPath.startsWith('/en')) {
+      // If path doesn't match expected pattern, default to /alvia
+      newPath = '/alvia'
+    }
+    
     if (newLanguage === 'en') {
       // Switching to English - add /en prefix
       if (!newPath.startsWith('/en')) {
@@ -55,12 +64,20 @@ export function LanguageProvider({ children }) {
     } else {
       // Switching to Arabic - remove /en prefix (default)
       if (newPath.startsWith('/en')) {
-        newPath = newPath.replace('/en', '') || '/alvia'
+        newPath = newPath.replace('/en', '')
+        // Ensure we have a valid path
+        if (!newPath || newPath === '/') {
+          newPath = '/alvia'
+        }
+      } else if (newPath !== '/alvia') {
+        // Ensure we're on /alvia for Arabic
+        newPath = '/alvia'
       }
     }
     
-    // Navigate to new URL
-    window.location.href = newPath
+    // Navigate to new URL using Next.js router for faster, smoother navigation
+    // This prevents full page reload and white screen flash
+    router.push(newPath)
   }
 
   // Wrapper function to use i18next's t with same API as before

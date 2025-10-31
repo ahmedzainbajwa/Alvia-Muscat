@@ -10,7 +10,7 @@ export default function I18nProvider({
 }: {
   children: React.ReactNode
 }) {
-  const [ready, setReady] = useState(false)
+  const [ready, setReady] = useState(true) // Start as ready to prevent white screen
   const pathname = usePathname()
 
   useEffect(() => {
@@ -22,14 +22,15 @@ export default function I18nProvider({
     }
 
     // Update HTML attributes
-    document.documentElement.lang = locale
-    document.documentElement.dir = locale === 'ar' ? 'rtl' : 'ltr'
+    if (typeof document !== 'undefined') {
+      document.documentElement.lang = locale
+      document.documentElement.dir = locale === 'ar' ? 'rtl' : 'ltr'
+    }
 
     setReady(true)
   }, [pathname])
 
-  if (!ready) return null // Prevent SSR/CSR mismatch
-
+  // Always render children to prevent white screen - handle language sync in effect
   return <I18nextProvider i18n={i18n}>{children}</I18nextProvider>
 }
 

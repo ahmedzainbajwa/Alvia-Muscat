@@ -367,6 +367,21 @@ html[dir="rtl"] .closeButton {
   right: auto !important;
 }
 
+/* RTL (Arabic) Mobile - Keep same layout as English: images top, form bottom */
+@media (max-width: 767px) {
+  html[dir="rtl"] .modalContent {
+    flex-direction: column !important; /* Ensure column layout for mobile Arabic matches English */
+  }
+
+  html[dir="rtl"] .leftSection {
+    order: 1 !important; /* Images on top */
+  }
+
+  html[dir="rtl"] .rightSection {
+    order: 2 !important; /* Form below */
+  }
+}
+
 /* RTL text alignment for form elements (Arabic text) */
 html[dir="rtl"] .label {
   text-align: right;

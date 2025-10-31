@@ -339,7 +339,7 @@ export function WhyChooseAlvia2({ image }) {
             <div className={styles.leftColumn}>
               <h5 className={styles.advantagesHeading}>{t('whyInvest.benefits.heading')}</h5>
               <p className={styles.advantagesDescription}>
-                Experience the perfect blend of luxury, convenience, and investment potential in one exceptional development.
+                {t('whyInvest.benefits.description')}
               </p>
               <div className={styles.advantageCards}>
                 {advantageCards3.map((card) => (
