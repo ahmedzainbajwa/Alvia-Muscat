@@ -1,6 +1,7 @@
 import { ReactNode } from 'react'
 import { Manrope, IBM_Plex_Sans_Arabic } from 'next/font/google'
 import './alvia/globals.css'
+import I18nProvider from '../components/I18nProvider'
 import { LanguageProvider } from '@/contexts/LanguageContext'
 
 const manrope = Manrope({
@@ -27,9 +28,11 @@ export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="en" className={`${manrope.variable} ${plexArabic.variable}`}>
       <body className={manrope.className}>
-        <LanguageProvider>
-          {children}
-        </LanguageProvider>
+        <I18nProvider>
+          <LanguageProvider>
+            {children}
+          </LanguageProvider>
+        </I18nProvider>
       </body>
     </html>
   )

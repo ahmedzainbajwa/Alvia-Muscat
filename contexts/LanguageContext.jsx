@@ -1,59 +1,84 @@
 'use client'
 
 import { createContext, useContext, useState, useEffect } from 'react'
-import enTranslations from '@/locales/en.json'
-import arTranslations from '@/locales/ar.json'
+import { useTranslation } from 'react-i18next'
+import { usePathname } from 'next/navigation'
 
 const LanguageContext = createContext()
 
 export function LanguageProvider({ children }) {
+  const { t: i18nT, i18n } = useTranslation()
+  const pathname = usePathname()
   const [language, setLanguage] = useState('en')
-  const [translations, setTranslations] = useState(enTranslations)
+  const [mounted, setMounted] = useState(false)
 
   useEffect(() => {
-    // Load language from localStorage on mount
-    const savedLanguage = localStorage.getItem('alvia-language')
-    if (savedLanguage && (savedLanguage === 'en' || savedLanguage === 'ar')) {
-      setLanguage(savedLanguage)
-      setTranslations(savedLanguage === 'ar' ? arTranslations : enTranslations)
-      
-      // Set document direction
-      document.documentElement.setAttribute('dir', savedLanguage === 'ar' ? 'rtl' : 'ltr')
-      document.documentElement.setAttribute('lang', savedLanguage)
-    } else {
-      // Default to English
-      document.documentElement.setAttribute('dir', 'ltr')
-      document.documentElement.setAttribute('lang', 'en')
-    }
+    setMounted(true)
   }, [])
+
+  useEffect(() => {
+    if (!mounted) return
+    
+    // Detect language from URL pathname
+    const detectedLanguage = pathname?.startsWith('/ar') ? 'ar' : 'en'
+    setLanguage(detectedLanguage)
+    
+    // Sync i18next with detected language
+    if (i18n && i18n.language !== detectedLanguage) {
+      i18n.changeLanguage(detectedLanguage)
+    }
+    
+    // Update document direction and lang attribute
+    document.documentElement.setAttribute('dir', detectedLanguage === 'ar' ? 'rtl' : 'ltr')
+    document.documentElement.setAttribute('lang', detectedLanguage)
+    
+    // Save to localStorage
+    localStorage.setItem('alvia-language', detectedLanguage)
+  }, [pathname, i18n, mounted])
 
   const toggleLanguage = () => {
     const newLanguage = language === 'en' ? 'ar' : 'en'
+    
+    // Change i18n language
+    if (i18n) {
+      i18n.changeLanguage(newLanguage)
+    }
     setLanguage(newLanguage)
-    setTranslations(newLanguage === 'ar' ? arTranslations : enTranslations)
     
-    // Save to localStorage
-    localStorage.setItem('alvia-language', newLanguage)
-    
-    // Update document direction and lang attribute
-    document.documentElement.setAttribute('dir', newLanguage === 'ar' ? 'rtl' : 'ltr')
-    document.documentElement.setAttribute('lang', newLanguage)
-  }
-
-  const t = (key) => {
-    const keys = key.split('.')
-    let value = translations
-    
-    for (const k of keys) {
-      if (value && typeof value === 'object' && k in value) {
-        value = value[k]
-      } else {
-        console.warn(`Translation key not found: ${key}`)
-        return key
+    // Manipulate pathname to add/remove /ar prefix
+    let newPath = pathname || '/alvia'
+    if (newLanguage === 'ar') {
+      if (!newPath.startsWith('/ar')) {
+        newPath = `/ar${newPath}`
+      }
+    } else {
+      if (newPath.startsWith('/ar')) {
+        newPath = newPath.replace('/ar', '') || '/alvia'
       }
     }
     
-    return value
+    // Navigate to new URL
+    window.location.href = newPath
+  }
+
+  // Wrapper function to use i18next's t with same API as before
+  const t = (key) => {
+    if (!mounted || !i18nT) return key
+    try {
+      return i18nT(key)
+    } catch (error) {
+      console.warn(`Translation error for key: ${key}`, error)
+      return key
+    }
+  }
+
+  if (!mounted) {
+    // Return default values during SSR
+    return (
+      <LanguageContext.Provider value={{ language: 'en', toggleLanguage, t, isRTL: false }}>
+        {children}
+      </LanguageContext.Provider>
+    )
   }
 
   return (
@@ -70,4 +95,5 @@ export function useLanguage() {
   }
   return context
 }
+
 

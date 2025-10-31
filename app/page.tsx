@@ -1,4 +1,7 @@
-// Re-export the main page from alvia folder to maintain root route
-import HomePage from './alvia/page'
-export default HomePage
+// Root page - redirect to /alvia (English version)
+import { redirect } from 'next/navigation'
+
+export default function RootPage() {
+  redirect('/alvia')
+}
 
