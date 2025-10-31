@@ -1,6 +1,6 @@
 import { ReactNode } from 'react'
 import { Manrope, IBM_Plex_Sans_Arabic } from 'next/font/google'
-import './globals.css'
+import './alvia/globals.css'
 import { LanguageProvider } from '@/contexts/LanguageContext'
 
 const manrope = Manrope({
