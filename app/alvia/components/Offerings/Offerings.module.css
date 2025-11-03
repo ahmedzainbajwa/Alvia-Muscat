@@ -229,6 +229,18 @@ html[dir="rtl"] .aboutDescription {
   text-align: right;
 }
 
+/* RTL (Arabic) adjustments */
+html[dir="rtl"] .cardContent,
+html[dir="rtl"] .cardTitle,
+html[dir="rtl"] .cardSubtitle {
+  text-align: right; /* Right align card text in Arabic */
+}
+
+/* Fix arrow directions in RTL so they do not point at each other */
+html[dir="rtl"] .navigationButtons .navButton svg {
+  transform: scaleX(-1); /* Mirror arrows horizontally */
+}
+
 
 /* 3D Tour */
 .tourSection {

@@ -88,21 +88,33 @@
   box-sizing: border-box;
 }
 
-/* Title */
-.title {
-  font-size: clamp(40px, 6vw, 104px);
-  line-height: var(--lh-h1);
-  letter-spacing: var(--ls-h1);
-  font-weight: 500;
-  color: var(--color-white);
+.logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto var(--space-4);
+  width: 100%;
   margin-bottom: var(--space-5);
 }
 
-.logo {
-  display: block;
+.logo img {
   height: auto;
-  margin: 0 auto 8px;
+  width: auto;
+  max-width: 240px; /* increased by 40px */
+  max-height: 96px; /* maintain aspect ratio */
+  object-fit: contain;
   filter: brightness(0) invert(1);
+}
+
+/* Title - Main Heading (We Redefine Lifestyle) */
+.title {
+  font-size: clamp(33px, 8vw, 105px); /* decreased by 15px */
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  font-weight: 500; /* adjusted weight */
+  color: var(--color-white);
+  margin-bottom: var(--space-4);
+  text-align: center;
 }
 
 /* Location Wrapper */
@@ -115,6 +127,8 @@
 }
 
 .locationIcon {
+  width: 24px;
+  height: 24px;
   color: var(--color-accent-b);
   flex-shrink: 0;
 }
@@ -124,6 +138,15 @@
   line-height: var(--lh-h3);
   font-weight: 500;
   color: var(--color-white);
+}
+
+/* Subtitle */
+.subtitle {
+  font-size: clamp(20px, 2vw, 28px);
+  line-height: 1.4;
+  color: rgba(255, 255, 255, 0.9);
+  margin-bottom: var(--space-4);
+  font-weight: 400;
 }
 
 /* Tagline */
@@ -143,8 +166,8 @@
   flex-direction: row;
   gap: var(--space-6);
   justify-content: center;
-  margin-top: 120px;
-  margin-bottom: 60px;
+  margin-top: var(--space-8);
+  margin-bottom: var(--space-6);
   flex-wrap: nowrap;
 }
 
@@ -174,18 +197,27 @@
   display: none;
 }
 
-.label {
-  font-size: clamp(14px, 1.5vw, 18px);
-  color: rgba(255, 255, 255, 0.7);
+.value {
+  font-size: clamp(24px, 2.5vw, 36px); /* start at 24px on desktop */
+  color: var(--color-white);
+  font-weight: 500; /* adjusted weight */
+  line-height: 1.2;
   white-space: nowrap;
+  margin-bottom: var(--space-1);
 }
 
-.value {
-  font-size: clamp(18px, 2vw, 24px);
-  color: var(--color-white);
-  font-weight: 500;
-  line-height: 1.32;
+/* Force exact 24px on large desktops to ensure visual change */
+@media (min-width: 1200px) {
+  .value {
+    font-size: 24px;
+  }
+}
+
+.label {
+  font-size: clamp(14px, 1.2vw, 16px);
+  color: rgba(255, 255, 255, 0.7);
   white-space: nowrap;
+  font-weight: 400;
 }
 
 /* Buttons */
@@ -194,6 +226,12 @@
   justify-content: center;
   gap: var(--space-4);
   flex-wrap: wrap;
+}
+
+.buttonIcon {
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
 }
 
 /* Bottom Gradient for Smooth Transition to Next Section */
@@ -267,9 +305,26 @@
     padding: 0 var(--space-5);
   }
 
-  .title {
-    font-size: clamp(32px, 10vw, 48px);
+  .logo {
     margin-bottom: var(--space-4);
+  }
+
+  .logo img {
+    max-width: 200px; /* +40px on mobile scaling */
+    max-height: 80px;
+    filter: brightness(0) invert(1);
+  }
+
+  .title {
+    font-size: clamp(21px, 10vw, 41px); /* decreased by 15px */
+    line-height: 1.1;
+    margin-bottom: var(--space-3);
+    font-weight: 500; /* adjusted weight */
+  }
+
+  .subtitle {
+    font-size: clamp(18px, 4vw, 24px);
+    margin-bottom: var(--space-3);
   }
 
   .locationWrapper {
@@ -288,8 +343,8 @@
   .details {
     flex-direction: column;
     gap: 0;
-    margin-top: var(--space-6);
-    margin-bottom: var(--space-5);
+    margin-top: var(--space-5);
+    margin-bottom: var(--space-4);
   }
 
   .detailRow {
@@ -308,6 +363,17 @@
     width: 50px;
     height: 1px;
     background-color: rgba(255, 255, 255, 0.3);
+  }
+
+  .value {
+    font-size: clamp(18px, 4vw, 24px);
+    margin-bottom: 4px;
+    font-weight: 600;
+  }
+
+  .label {
+    font-size: clamp(12px, 2.5vw, 14px);
+    font-weight: 400;
   }
 
   .detailRow::after {

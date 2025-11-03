@@ -12,6 +12,11 @@
   white-space: nowrap;
 }
 
+/* RTL (Arabic) - Apply Arabic font */
+html[dir="rtl"] .button {
+  font-family: var(--font-family-arabic) !important;
+}
+
 /* Variants */
 .primary {
   background-color: var(--color-primary);

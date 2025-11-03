@@ -305,3 +305,11 @@ html[dir="rtl"] .mobileNavLink.active {
   }
 }
 
+/* RTL (Arabic) - Apply Arabic font to language button text */
+html[dir="rtl"] .languageButton,
+html[dir="rtl"] .languageText,
+html[dir="rtl"] .mobileLanguageButton,
+html[dir="rtl"] .mobileLanguageText {
+  font-family: var(--font-family-arabic) !important;
+}
+

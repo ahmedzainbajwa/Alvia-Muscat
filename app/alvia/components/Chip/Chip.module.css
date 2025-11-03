@@ -14,6 +14,11 @@
   color: var(--text-secondary);
 }
 
+/* RTL (Arabic) - Apply Arabic font */
+html[dir="rtl"] .chip {
+  font-family: var(--font-family-arabic) !important;
+}
+
 .chip:hover {
   background-color: var(--color-grey-light);
 }

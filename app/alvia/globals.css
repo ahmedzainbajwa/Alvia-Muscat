@@ -101,9 +101,21 @@ body::-webkit-scrollbar {
    RTL SUPPORT
    =================================== */
 
-/* Apply Arabic font when html has dir="rtl" */
-html[dir="rtl"] body {
-  font-family: var(--font-family-arabic);
+/* Apply Arabic font to ALL text elements when html has dir="rtl" */
+html[dir="rtl"] body,
+html[dir="rtl"] p,
+html[dir="rtl"] span,
+html[dir="rtl"] a,
+html[dir="rtl"] button,
+html[dir="rtl"] input,
+html[dir="rtl"] textarea,
+html[dir="rtl"] label,
+html[dir="rtl"] select,
+html[dir="rtl"] div,
+html[dir="rtl"] li,
+html[dir="rtl"] td,
+html[dir="rtl"] th {
+  font-family: var(--font-family-arabic) !important;
 }
 
 html[dir="rtl"] h1,
@@ -112,7 +124,7 @@ html[dir="rtl"] h3,
 html[dir="rtl"] h4,
 html[dir="rtl"] h5,
 html[dir="rtl"] h6 {
-  font-family: var(--font-family-arabic);
+  font-family: var(--font-family-arabic) !important;
 }
 
 /* ===================================

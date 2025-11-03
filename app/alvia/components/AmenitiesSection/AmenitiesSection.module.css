@@ -600,3 +600,8 @@
     justify-content: flex-end;
   }
 }
+
+/* Fix arrow directions in RTL so they do not point at each other */
+html[dir="rtl"] .navigationButtons .navButton svg {
+  transform: scaleX(-1); /* Mirror arrows horizontally */
+}

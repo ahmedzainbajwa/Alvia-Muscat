@@ -227,3 +227,17 @@
   }
 }
 
+/* RTL (Arabic) - Apply Arabic font to all Contact form elements */
+html[dir="rtl"] .label,
+html[dir="rtl"] .input,
+html[dir="rtl"] .phoneInput,
+html[dir="rtl"] .textarea,
+html[dir="rtl"] .select,
+html[dir="rtl"] .contactHeading,
+html[dir="rtl"] .contactItem,
+html[dir="rtl"] .contactText,
+html[dir="rtl"] .error,
+html[dir="rtl"] .success {
+  font-family: var(--font-family-arabic) !important;
+}
+
