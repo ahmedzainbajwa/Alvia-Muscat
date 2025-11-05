@@ -4,15 +4,13 @@
   position: relative;
   background-color: #ffffff;
   padding: clamp(48px, 6vw, 72px) clamp(16px, 8vw, 120px);
-  overflow-x: hidden;
-  overflow-y: hidden;
+  overflow: hidden; /* Prevent any scroll */
 }
 
 .container {
   max-width: 1920px;
   margin: 0 auto;
-  overflow-x: hidden;
-  overflow-y: hidden;
+  overflow: visible; /* Allow orbital carousel to render properly */
 }
 
 /* Header */
@@ -46,8 +44,7 @@
   gap: clamp(32px, 8vw, 120px);
   margin-bottom: clamp(24px, 3vw, 32px);
   position: relative;
-  overflow-x: hidden;
-  overflow-y: hidden;
+  overflow: visible; /* Allow orbital carousel to render fully */
 }
 
 /* Left Side - Content */
@@ -66,7 +63,7 @@
   position: relative;
   width: 50%;
   height: clamp(400px, 50vw, 700px); /* Responsive height */
-  overflow: hidden; /* Hide overflow to prevent vertical scroll */
+  overflow: visible; /* Allow full carousel to render */
 }
 
 .content {
@@ -119,20 +116,20 @@
 
 .orbitContainer {
   position: relative;
-  width: clamp(480px, 60vw, 840px); /* Responsive width */
-  height: clamp(480px, 60vw, 840px); /* Responsive height */
+  width: 840px; /* Fixed desktop width */
+  height: 840px; /* Fixed desktop height */
   display: flex;
   align-items: center;
   justify-content: center;
-  transform: translateX(clamp(320px, 45vw, 640px)); /* Responsive positioning to maintain half-cut */
+  transform: translateX(640px); /* Fixed desktop positioning to maintain half-cut */
   overflow: visible; /* Allow right half to go off-screen */
 }
 
 /* Circular orbital line */
 .orbitalLine {
   position: absolute;
-  width: clamp(540px, 67vw, 940px); /* Responsive line size */
-  height: clamp(540px, 67vw, 940px); /* Responsive line size */
+  width: 940px; /* Fixed desktop line size */
+  height: 940px; /* Fixed desktop line size */
   border: 2px solid rgba(0, 0, 0, 0.2); /* More visible line */
   border-radius: 50%;
   top: 50%;
@@ -158,8 +155,8 @@
 /* Orbital Thumbnails */
 .orbitalThumbnail {
   position: absolute;
-  width: clamp(110px, 14vw, 194px); /* Responsive thumbnail size */
-  height: clamp(110px, 14vw, 194px); /* Responsive thumbnail size */
+  width: 194px; /* Fixed desktop thumbnail size */
+  height: 194px; /* Fixed desktop thumbnail size */
   border-radius: 50%;
   background: linear-gradient(145deg, #ffffff, #f8f8f8);
   border: 2px solid rgba(0, 0, 0, 0.15);
@@ -303,79 +300,28 @@
   cursor: not-allowed;
 }
 
-/* Tablet Styles */
-@media (max-width: 1199px) and (min-width: 768px) {
-  .mainContent {
-    gap: var(--space-6);
-  }
-
-  .orbitSection {
-    overflow-x: hidden;
-    overflow-y: hidden;
-  }
-
-  .orbitContainer {
-    width: 1080px; /* Width to show ~5 thumbnails with half cut effect on tablet */
-    height: 540px; /* Match orbital line height */
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
-    transform: none; /* Remove desktop positioning */
-    position: relative;
-    left: 50%;
-    margin-left: -270px; /* Center with half visible - adjust based on 270px radius */
-  }
-
-  .orbitalLine {
-    position: absolute;
-    left: 270px; /* Center the orbital line */
-    transform: translateX(-50%);
-    width: 540px;
-    height: 540px;
-  }
-
-  .centerCircle {
-    width: 100px;
-    height: 100px;
-  }
-
-  .centerIcon {
-    width: 60px !important;
-    height: 60px !important;
-  }
-
-  .orbitalThumbnail {
-    width: 100px; /* Slightly smaller for tablet */
-    height: 100px;
-    position: absolute;
-  }
-
-  .orbitalThumbnailActive {
-    transform: scale(1.1); /* Scale to increase size for active state */
-  }
-
-  .thumbnailIcon {
-    width: 100% !important;
-    height: 100% !important;
-  }
-
-  .contentSection {
-    max-width: 400px;
-  }
-}
-
 /* Desktop/Tablet: Maintain half-cut position with responsive scaling */
-@media (min-width: 768px) and (max-width: 1919px) {
+@media (min-width: 768px) {
   .amenitiesSection {
-    overflow-y: hidden; /* Ensure no vertical scroll */
+    overflow: hidden; /* Prevent any scroll on section level */
   }
   
-  .orbitSection {
-    overflow: hidden; /* Prevent vertical scroll */
+  .container {
+    overflow: visible; /* Allow content to render */
   }
   
   .mainContent {
-    overflow-y: hidden; /* Prevent vertical scroll */
+    overflow: visible; /* Allow orbital carousel to render fully */
+  }
+  
+  .orbitSection {
+    overflow: visible; /* Allow carousel to extend naturally */
+  }
+  
+  /* Scale down the entire orbital carousel for smaller screens while maintaining proportions */
+  .orbitContainer {
+    transform: translateX(640px) scale(clamp(0.6, 0.06vw, 1)); /* Scale down for smaller screens */
+    transform-origin: center center; /* Scale from center to maintain positioning */
   }
 }
 
