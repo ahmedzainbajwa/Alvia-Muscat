@@ -173,23 +173,19 @@
   white-space: nowrap;
 }
 
-/* Tablet Styles */
-@media (max-width: 1199px) {
+/* Keep desktop layout, only adjust sizes for smaller screens */
+@media (max-width: 1199px) and (min-width: 768px) {
   .section {
-    padding: var(--space-6);
-  }
-
-  .mainLayout,
-  .mainLayoutReversed {
-    grid-template-columns: 1fr;
-    gap: var(--space-6);
+    padding: clamp(var(--space-5), 4vw, var(--space-9)) clamp(var(--space-5), 4vw, var(--space-8));
   }
 
   .imageContainer {
-    height: 420px;
-    margin-bottom: 24px; /* Reduce gap to 24px for tablet */
+    height: clamp(350px, 30vw, 500px);
+  }
   }
 
+/* Tablet Styles - Keep for mobile fallback */
+@media (max-width: 1199px) {
   .leftColumn,
   .rightColumn {
     min-height: 420px;

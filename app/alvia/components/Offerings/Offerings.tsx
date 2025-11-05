@@ -46,8 +46,10 @@ export default function Offerings({ data }) {
     setCurrentPage(1)
   }, [activeTab])
 
-  // Calculate total pages based on visible cards
+  // Calculate total pages based on visible cards with debouncing
   useEffect(() => {
+    let timeoutId: NodeJS.Timeout
+    
     const calculatePages = () => {
       if (carouselRef.current) {
         const containerWidth = carouselRef.current.offsetWidth
@@ -67,9 +69,17 @@ export default function Offerings({ data }) {
       }
     }
 
+    const debouncedCalculatePages = () => {
+      clearTimeout(timeoutId)
+      timeoutId = setTimeout(calculatePages, 150)
+    }
+
     calculatePages()
-    window.addEventListener('resize', calculatePages)
-    return () => window.removeEventListener('resize', calculatePages)
+    window.addEventListener('resize', debouncedCalculatePages, { passive: true })
+    return () => {
+      clearTimeout(timeoutId)
+      window.removeEventListener('resize', debouncedCalculatePages)
+    }
   }, [currentOfferings.length])
 
   // Navigation functions

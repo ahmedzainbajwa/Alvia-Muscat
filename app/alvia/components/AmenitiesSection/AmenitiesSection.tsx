@@ -87,17 +87,26 @@ export default function AmenitiesSection() {
   // Get current width with fallback
   const currentWidth = windowWidth || (typeof window !== 'undefined' ? window.innerWidth : 1920)
 
-  // Track window size changes
+  // Track window size changes with debouncing
   useEffect(() => {
+    let timeoutId: NodeJS.Timeout
+    
     const handleResize = () => {
-      setWindowWidth(window.innerWidth)
+      // Debounce resize events to reduce re-renders
+      clearTimeout(timeoutId)
+      timeoutId = setTimeout(() => {
+        setWindowWidth(window.innerWidth)
+      }, 150) // Wait 150ms after resize stops
     }
 
     // Set initial width
     setWindowWidth(window.innerWidth)
     
-    window.addEventListener('resize', handleResize)
-    return () => window.removeEventListener('resize', handleResize)
+    window.addEventListener('resize', handleResize, { passive: true })
+    return () => {
+      clearTimeout(timeoutId)
+      window.removeEventListener('resize', handleResize)
+    }
   }, [])
 
   // Calculate orbital positions - active item positioned at middle-left (180 degrees)

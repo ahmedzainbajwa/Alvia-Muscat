@@ -273,35 +273,18 @@ html[dir="rtl"] .navigationButtons .navButton svg {
   border: none;
 }
 
-/* Tablet Styles */
-@media (max-width: 1199px) {
+/* Keep desktop layout, only adjust sizes for smaller screens */
+@media (max-width: 1199px) and (min-width: 768px) {
   .section {
-    padding: var(--space-6);
+    padding: clamp(var(--space-5), 3vw, var(--space-8));
   }
 
   .card {
-    width: 350px; /* Larger cards for tablet */
+    width: clamp(320px, 25vw, 400px);
   }
 
   .card .imageWrapper {
-    height: 280px; /* Maintain prominence on tablet */
-    border-radius: 4px; /* Equal corner radius on all corners */
-  }
-
-  .cardContent {
-    padding: var(--space-3) 0; /* Slightly less padding for tablet */
-  }
-
-  .cardTitle {
-    font-size: 18px; /* Slightly smaller for tablet */
-  }
-
-  .cardSubtitle {
-    font-size: 14px; /* Slightly smaller for tablet */
-  }
-
-  .tourContainer {
-    padding-bottom: calc(56.25% + 400px); /* Add 400px height for tablet */
+    height: clamp(240px, 20vw, 320px);
   }
 }
 

@@ -22,6 +22,8 @@
   max-width: 1920px;
   margin: 0 auto;
   gap: var(--space-6);
+  overflow-x: hidden;
+  min-width: 0;
 }
 
 .logoWrapper {
@@ -48,6 +50,8 @@
   gap: var(--space-6);
   flex: 1;
   justify-content: center;
+  min-width: 0;
+  overflow: hidden;
 }
 
 .navLink {
@@ -193,6 +197,61 @@ html[dir="rtl"] .mobileNavLink.active {
 
 .mobileMenu {
   display: none;
+}
+
+/* Keep desktop layout, only adjust sizes for smaller screens */
+@media (max-width: 1199px) and (min-width: 768px) {
+  .container {
+    padding: var(--space-4) clamp(var(--space-3), 2vw, var(--space-8));
+    gap: clamp(var(--space-3), 2vw, var(--space-6));
+  }
+
+  .logo img {
+    width: clamp(90px, 8vw, 120px) !important;
+    height: auto !important;
+  }
+
+  .navLinks {
+    gap: clamp(var(--space-2), 1.5vw, var(--space-4));
+    flex-wrap: nowrap;
+    min-width: 0;
+    overflow: hidden;
+  }
+  
+  .cta {
+    flex-shrink: 0;
+    gap: clamp(var(--space-2), 1.5vw, var(--space-3));
+  }
+  
+  .cta :global(.button) {
+    font-size: clamp(11px, 1.1vw, 14px) !important;
+    padding: clamp(8px, 1vw, 12px) clamp(12px, 1.5vw, 20px) !important;
+  }
+  
+  .callButton {
+    width: clamp(32px, 3vw, 40px);
+    height: clamp(32px, 3vw, 40px);
+  }
+  
+  .callIcon {
+    width: clamp(18px, 2vw, 22px);
+    height: clamp(18px, 2vw, 22px);
+  }
+
+  .navLink {
+    font-size: clamp(11px, 1.1vw, 13px);
+    padding: var(--space-1) clamp(var(--space-1), 0.8vw, var(--space-2));
+    white-space: nowrap;
+  }
+
+  .languageButton {
+    padding: var(--space-2) clamp(var(--space-2), 1.5vw, var(--space-4));
+    font-size: clamp(11px, 1.1vw, var(--font-regular-s));
+  }
+
+  .languageText {
+    font-size: clamp(12px, 1.2vw, var(--font-regular-m));
+  }
 }
 
 /* Tablet & Mobile Styles */
