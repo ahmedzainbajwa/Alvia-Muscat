@@ -258,11 +258,13 @@
     }
   },
   "footer": {
-    "copyright": "Alvia. All rights reserved.",
-    "privacyPolicy": "Privacy Policy",
-    "termsOfService": "Terms of Service",
-    "contact": "Contact",
-    "tagline": "Developed with excellence · Designed for modern living"
+    "helpSupport": "Help & Support",
+    "aboutUs": "About Us",
+    "termsPrivacy": "Terms & Privacy Policy",
+    "downloadAppStore": "Download on the",
+    "appStore": "App Store",
+    "getItGooglePlay": "GET IT ON",
+    "googlePlay": "Google Play"
   },
   "brochureModal": {
     "title": "Download Brochures",

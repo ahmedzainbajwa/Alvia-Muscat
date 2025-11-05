@@ -69,7 +69,6 @@ export default function Hero({ data }: HeroProps) {
         loop
         playsInline
         preload="metadata"
-        poster="/assets/hero/Alvia-AnimatedPng.png"
       >
         {/* Prefer modern codec if available; fallback to MP4 */}
         <source src="/assets/hero/alvia-flythrough.vp9.webm" type="video/webm" />

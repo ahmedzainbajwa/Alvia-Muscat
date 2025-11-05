@@ -12,7 +12,7 @@ interface BrochureModalProps {
 }
 
 export default function BrochureModal({ isOpen, onClose }: BrochureModalProps) {
-  const { t } = useLanguage()
+  const { t, language } = useLanguage()
   const [formData, setFormData] = useState({
     fullName: '',
     email: '',
@@ -88,6 +88,18 @@ export default function BrochureModal({ isOpen, onClose }: BrochureModalProps) {
   ]
 
   const [isHovering, setIsHovering] = useState(false)
+
+  // Links that change based on language (same as footer)
+  const links = {
+    termsPrivacy: {
+      en: 'https://www.bayut.om/en/terms.html',
+      ar: 'https://www.bayut.om/terms.html'
+    }
+  }
+
+  const getLink = (key: keyof typeof links) => {
+    return links[key][language === 'ar' ? 'ar' : 'en']
+  }
 
   // Lock body scroll when modal is open
   useEffect(() => {
@@ -298,8 +310,22 @@ export default function BrochureModal({ isOpen, onClose }: BrochureModalProps) {
             {/* Terms & Conditions */}
             <p className={styles.terms}>
               {t('brochureModal.termsPrefix')}{' '}
-              <a href="#" className={styles.link}>{t('common.terms')}</a> {t('common.and')}{' '}
-              <a href="#" className={styles.link}>{t('common.privacy')}</a>.
+              <a 
+                href={getLink('termsPrivacy')} 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className={styles.link}
+              >
+                {t('common.terms')}
+              </a> {t('common.and')}{' '}
+              <a 
+                href={getLink('termsPrivacy')} 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className={styles.link}
+              >
+                {t('common.privacy')}
+              </a>.
             </p>
           </form>
         </div>

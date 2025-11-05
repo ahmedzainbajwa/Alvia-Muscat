@@ -1,7 +1,7 @@
 .footer {
-  background-color: var(--color-accent-a);
+  background-color: var(--color-black);
   color: var(--color-white);
-  padding: var(--space-9) var(--space-8) var(--space-6) var(--space-8);  /* top right bottom left */
+  padding: var(--space-9) var(--space-8);
 }
 
 .container {
@@ -9,77 +9,142 @@
   margin: 0 auto;
   display: flex;
   flex-direction: column;
-  gap: var(--space-5);
-}
-
-.content {
-  display: flex;
-  justify-content: space-between;
   align-items: center;
-  flex-wrap: wrap;
-  gap: var(--space-4);
+  gap: 34px;
 }
 
-.left {
-  display: flex;
-  align-items: center;
-}
-
-.copyright {
-  font-size: var(--font-regular-s);
-  color: rgba(255, 255, 255, 0.8);
-}
-
-.right {
-  display: flex;
-  gap: var(--space-6);
-  align-items: center;
-}
-
-.link {
-  font-size: var(--font-regular-s);
-  color: rgba(255, 255, 255, 0.8);
-  text-decoration: none;
-  transition: color 0.3s ease;
-}
-
-.link:hover {
-  color: var(--color-white);
-}
-
-.divider {
-  width: 100%;
-  height: 1px;
-  background-color: rgba(255, 255, 255, 0.2);
-}
-
-.bottom {
+/* Top Section - Logos */
+.logosSection {
   display: flex;
   justify-content: center;
+  width: 100%;
+}
+
+.logoWrapper {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.logo {
+  display: flex;
   align-items: center;
 }
 
-.tagline {
-  font-size: var(--font-regular-s);
-  color: rgba(255, 255, 255, 0.6);
-  text-align: center;
+.logo img {
+  width: auto !important;
+  height: auto !important;
+  max-width: 120px;
+  object-fit: contain;
 }
+
+.logoSeparator {
+  width: 1px;
+  height: 32px;
+  background-color: rgba(255, 255, 255, 0.3);
+}
+
+/* Middle Section - Navigation Links */
+.navSection {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-4);
+  flex-wrap: wrap;
+}
+
+.navLink {
+  font-size: var(--font-regular-m);
+  color: var(--color-white);
+  text-decoration: none;
+  transition: color 0.3s ease;
+  font-family: var(--font-family);
+}
+
+.navLink:hover {
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.navSeparator {
+  width: 1px;
+  height: 20px;
+  background-color: rgba(255, 255, 255, 0.3);
+}
+
+/* Bottom Section - App Download Buttons */
+.appButtonsSection {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-4);
+  flex-wrap: wrap;
+}
+
+.appButton {
+  display: inline-block;
+  text-decoration: none;
+  transition: opacity 0.3s ease;
+}
+
+.appButton:hover {
+  opacity: 0.8;
+}
+
+.appBadge {
+  width: auto !important;
+  height: auto !important;
+  max-width: 135px;
+  height: auto;
+  object-fit: contain;
+}
+
+/* RTL Support */
+html[dir="rtl"] .navLink {
+  font-family: var(--font-family-arabic) !important;
+}
+
 
 /* Mobile Styles */
 @media (max-width: 767px) {
   .footer {
-    padding: var(--space-6) var(--space-5) var(--space-5);
+    padding: var(--space-6) var(--space-4);
   }
 
-  .content {
-    flex-direction: column;
-    align-items: flex-start;
+  .container {
+    gap: 34px;
   }
 
-  .right {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: var(--space-3);
+  .logo img {
+    max-width: 90px;
+  }
+
+  .navSection {
+    flex-direction: row;
+    gap: var(--space-2);
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .navLink {
+    font-size: 11px;
+    white-space: nowrap;
+  }
+
+  .navSeparator {
+    display: block;
+    height: 16px;
+    width: 1px;
+  }
+
+  .appButtonsSection {
+    flex-direction: row;
+    gap: var(--space-2);
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .appBadge {
+    max-width: 100px;
+    height: auto;
   }
 }
-

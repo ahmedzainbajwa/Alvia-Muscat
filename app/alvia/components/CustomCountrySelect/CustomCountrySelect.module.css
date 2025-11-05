@@ -176,12 +176,17 @@
   }
 }
 
-/* RTL (Arabic) - Apply Arabic font */
+/* RTL (Arabic) - Apply Arabic font and align dropdown to right */
 html[dir="rtl"] .selectButton,
 html[dir="rtl"] .searchInput,
 html[dir="rtl"] .option,
 html[dir="rtl"] .optionText,
 html[dir="rtl"] .noResults {
   font-family: var(--font-family-arabic) !important;
+}
+
+html[dir="rtl"] .dropdown {
+  left: auto;
+  right: 0;
 }
 

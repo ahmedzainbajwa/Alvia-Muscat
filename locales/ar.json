@@ -258,11 +258,13 @@
     }
   },
   "footer": {
-    "copyright": "ألفيا. جميع الحقوق محفوظة.",
-    "privacyPolicy": "سياسة الخصوصية",
-    "termsOfService": "شروط الخدمة",
-    "contact": "اتصل بنا",
-    "tagline": "مطوّر بتميز · مصمم للحياة العصرية"
+    "helpSupport": "المساعدة والدعم",
+    "aboutUs": "من نحن",
+    "termsPrivacy": "الشروط وسياسة الخصوصية",
+    "downloadAppStore": "Download on the",
+    "appStore": "App Store",
+    "getItGooglePlay": "GET IT ON",
+    "googlePlay": "Google Play"
   },
   "brochureModal": {
     "title": "تحميل الكتيبات",

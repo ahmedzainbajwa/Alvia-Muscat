@@ -9,65 +9,16 @@
 }
 
 .content {
-  display: grid;
-  grid-template-columns: 1fr 1.5fr;
-  gap: var(--space-8);
-  align-items: start;
-}
-
-/* Left Column */
-.leftColumn {
   display: flex;
   flex-direction: column;
-  gap: var(--space-8);
-  position: sticky;
-  top: 120px;
-}
-
-.logoWrapper {
-  display: flex;
   align-items: center;
+  gap: var(--space-5);
 }
 
-.logoWrapper img {
-  width: auto !important;
-  height: auto !important;
-  max-width: 160px;
-  object-fit: contain;
-}
-
-.contactInfo {
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-4);
-}
-
-.contactHeading {
-  font-size: var(--font-regular-m);
-  line-height: var(--lh-regular-m);
-  font-weight: 500;
-  color: var(--text-primary);
-  margin-bottom: 8px;
-}
-
-.contactItem {
-  display: flex;
-  align-items: center;
-  gap: var(--space-3);
-  font-size: var(--font-regular-m);
-  color: var(--text-primary);
-}
-
-.icon {
-  width: 20px;
-  height: 20px;
-  color: var(--color-primary);
-  flex-shrink: 0;
-}
-
-/* Right Column - Form */
+/* Contact Form Column */
 .rightColumn {
   width: 100%;
+  max-width: 800px;
 }
 
 .heading {
@@ -199,12 +150,7 @@
   }
 
   .content {
-    grid-template-columns: 1fr;
     gap: var(--space-6);
-  }
-
-  .leftColumn {
-    position: static;
   }
 }
 
@@ -212,10 +158,6 @@
 @media (max-width: 767px) {
   .section {
     padding: var(--space-5);
-  }
-
-  .leftColumn {
-    gap: var(--space-4); /* Reduce gap between logo and content from 120px to 32px */
   }
 
   .formRow {
@@ -233,9 +175,6 @@ html[dir="rtl"] .input,
 html[dir="rtl"] .phoneInput,
 html[dir="rtl"] .textarea,
 html[dir="rtl"] .select,
-html[dir="rtl"] .contactHeading,
-html[dir="rtl"] .contactItem,
-html[dir="rtl"] .contactText,
 html[dir="rtl"] .error,
 html[dir="rtl"] .success {
   font-family: var(--font-family-arabic) !important;
