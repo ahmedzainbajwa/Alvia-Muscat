@@ -4,13 +4,14 @@
   position: relative;
   background-color: #ffffff;
   padding: var(--space-9) var(--space-8);
-  overflow-x: visible; /* Allow orbit to overflow on right side */
+  overflow-x: hidden;
   overflow-y: hidden;
 }
 
 .container {
   max-width: 1920px;
   margin: 0 auto;
+  overflow-x: hidden;
 }
 
 /* Header */
@@ -44,6 +45,7 @@
   gap: var(--space-8);
   margin-bottom: var(--space-6);
   position: relative;
+  overflow-x: hidden;
 }
 
 /* Left Side - Content */
@@ -306,17 +308,8 @@
   }
 
   .orbitSection {
-    overflow-x: auto; /* Enable horizontal scrolling */
-    overflow-y: hidden; /* Hide vertical overflow */
-    -webkit-overflow-scrolling: touch; /* Smooth scrolling on iOS */
-    scroll-snap-type: x mandatory; /* Snap scrolling */
-    scroll-behavior: smooth; /* Smooth scrolling */
-    scrollbar-width: none; /* Hide scrollbar on Firefox */
-    -ms-overflow-style: none; /* Hide scrollbar on IE/Edge */
-  }
-
-  .orbitSection::-webkit-scrollbar {
-    display: none; /* Hide scrollbar on Chrome/Safari */
+    overflow-x: hidden;
+    overflow-y: hidden;
   }
 
   .orbitContainer {
@@ -414,17 +407,8 @@
     width: 100%;
     height: 340px; /* Increased for mobile */
     justify-content: center;
-    overflow-x: auto; /* Enable horizontal scrolling */
-    overflow-y: hidden; /* Hide vertical overflow */
-    -webkit-overflow-scrolling: touch; /* Smooth scrolling on iOS */
-    scroll-snap-type: x mandatory; /* Snap scrolling */
-    scroll-behavior: smooth; /* Smooth scrolling */
-    scrollbar-width: none; /* Hide scrollbar on Firefox */
-    -ms-overflow-style: none; /* Hide scrollbar on IE/Edge */
-  }
-
-  .orbitSection::-webkit-scrollbar {
-    display: none; /* Hide scrollbar on Chrome/Safari */
+    overflow-x: hidden;
+    overflow-y: hidden;
   }
 
   .orbitContainer {
