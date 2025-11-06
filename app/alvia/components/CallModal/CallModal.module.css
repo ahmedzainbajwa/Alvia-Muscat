@@ -90,6 +90,19 @@
   flex: 1;
 }
 
+/* Arabic version: Hide call icon and center align heading */
+html[dir="rtl"] .headerIconWrapper {
+  display: none;
+}
+
+html[dir="rtl"] .headerContent {
+  justify-content: center;
+}
+
+html[dir="rtl"] .title {
+  text-align: center;
+}
+
 /* Close Button */
 .closeButton {
   position: absolute;
