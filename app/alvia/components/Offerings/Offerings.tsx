@@ -46,6 +46,20 @@ export default function Offerings({ data }) {
     setCurrentPage(1)
   }, [activeTab])
 
+  // Disable mouse/touchpad horizontal scrolling for Arabic version
+  useEffect(() => {
+    if (language === 'ar' && carouselRef.current) {
+      const element = carouselRef.current
+      const preventHorizontalScroll = (e) => {
+        if (Math.abs(e.deltaX) > Math.abs(e.deltaY)) {
+          e.preventDefault()
+        }
+      }
+      element.addEventListener('wheel', preventHorizontalScroll, { passive: false })
+      return () => element.removeEventListener('wheel', preventHorizontalScroll)
+    }
+  }, [language])
+
   // Calculate total pages based on visible cards with debouncing
   useEffect(() => {
     let timeoutId: NodeJS.Timeout
@@ -84,41 +98,75 @@ export default function Offerings({ data }) {
 
   // Navigation functions
   const scrollToPage = (page) => {
-    if (carouselRef.current) {
-      const containerWidth = carouselRef.current.offsetWidth
-      const windowWidth = window.innerWidth
-      
-      // Responsive card width based on screen size
-      let cardWidth = 400 + 16 // Desktop default
-      if (windowWidth <= 767) {
-        cardWidth = 320 + 16 // Mobile
-      } else if (windowWidth <= 1199) {
-        cardWidth = 350 + 16 // Tablet
+    if (!carouselRef.current) return
+    
+    const element = carouselRef.current
+    const containerWidth = element.offsetWidth
+    const windowWidth = window.innerWidth
+    
+    // Responsive card width based on screen size
+    let cardWidth = 400 + 16
+    if (windowWidth <= 767) {
+      cardWidth = 320 + 16
+    } else if (windowWidth <= 1199) {
+      cardWidth = 350 + 16
+    }
+    
+    const visibleCards = Math.floor(containerWidth / cardWidth)
+    const scrollDistance = visibleCards * cardWidth
+    const maxScroll = element.scrollWidth - element.offsetWidth
+    
+    if (language === 'ar') {
+      // RTL scrolling
+      let targetScroll
+      if (page === 1) {
+        targetScroll = maxScroll
+      } else if (page >= totalPages) {
+        targetScroll = 0
+      } else {
+        targetScroll = maxScroll - ((page - 1) * scrollDistance)
       }
       
-      const visibleCards = Math.floor(containerWidth / cardWidth)
-      const scrollPosition = (page - 1) * visibleCards * cardWidth
-      
-      carouselRef.current.scrollTo({
-        left: scrollPosition,
-        behavior: 'smooth'
-      })
+      // Force scroll - try multiple methods
+      element.scrollLeft = targetScroll
+      setTimeout(() => {
+        element.scrollLeft = targetScroll
+        element.scrollTo({ left: targetScroll, behavior: 'smooth' })
+      }, 0)
+    } else {
+      // LTR: normal scroll
+      const targetScroll = (page - 1) * scrollDistance
+      element.scrollTo({ left: targetScroll, behavior: 'smooth' })
     }
   }
 
   const handlePrev = () => {
     if (currentPage > 1) {
       const newPage = currentPage - 1
-      setCurrentPage(newPage) // Update state immediately
-      scrollToPage(newPage)
+      setCurrentPage(newPage)
+      if (language === 'ar') {
+        // For RTL, prev means scroll right (positive)
+        const element = carouselRef.current
+        const scrollAmount = element.offsetWidth * 0.8
+        element.scrollBy({ left: scrollAmount, behavior: 'smooth' })
+      } else {
+        scrollToPage(newPage)
+      }
     }
   }
 
   const handleNext = () => {
     if (currentPage < totalPages) {
       const newPage = currentPage + 1
-      setCurrentPage(newPage) // Update state immediately
-      scrollToPage(newPage)
+      setCurrentPage(newPage)
+      if (language === 'ar') {
+        // For RTL, next means scroll left (negative)
+        const element = carouselRef.current
+        const scrollAmount = element.offsetWidth * 0.8
+        element.scrollBy({ left: -scrollAmount, behavior: 'smooth' })
+      } else {
+        scrollToPage(newPage)
+      }
     }
   }
 

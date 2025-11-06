@@ -43,11 +43,18 @@
 .carousel {
   display: flex;
   gap: var(--space-4);
-  overflow-x: hidden; /* Disable horizontal scrolling on web */
+  overflow-x: auto; /* Enable scrolling for navigation buttons */
   scroll-snap-type: none; /* Disable snap scrolling on web */
   scrollbar-width: none;
   -ms-overflow-style: none;
   padding-bottom: var(--space-4);
+  scroll-behavior: smooth; /* Smooth scrolling for button navigation */
+}
+
+/* Disable mouse/touchpad scrolling for Arabic version - only button navigation */
+html[dir="rtl"] .carousel {
+  overscroll-behavior: none;
+  touch-action: pan-y; /* Allow vertical touch, prevent horizontal */
 }
 
 .carousel::-webkit-scrollbar {
